@@ -62,4 +62,14 @@ public class WaterPot : MonoBehaviour
 
 
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.GetComponent<BasicIndegridients>() != null)
+        {
+            BasicIndegridients indegridients = other.gameObject.GetComponent<BasicIndegridients>();
+            indegridients.isWet = true;
+        }
+    }
+
 }

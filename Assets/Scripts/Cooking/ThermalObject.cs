@@ -24,9 +24,14 @@ public class ThermalObject : MonoBehaviour
     // 온도 상변화가 일어나지 않게 하기.
     public bool isTemperatureChangeEnabled = false;
 
-    private void FixedUpdate()
+    private void Update()
     {
-        if(temperatureLockInInitial)
+        CheckTemperatureLock();
+    }
+
+    protected void CheckTemperatureLock()
+    {
+        if (temperatureLockInInitial)
         {
             temperature = initialTemperature;
         }
