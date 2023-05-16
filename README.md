@@ -1,2 +1,0 @@
-# VRCook
-VR Cooking Simulator

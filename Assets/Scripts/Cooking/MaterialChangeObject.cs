@@ -75,7 +75,6 @@ public class MaterialChangeObject : MonoBehaviour
 
     private void SetMaterialAlpha(int index, float alpha)
     {
-        Debug.Log(index);
         Color color = meshRenderer.materials[index].color;
         color.a = alpha;
         meshRenderer.materials[index].color = color;
