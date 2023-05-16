@@ -215,12 +215,13 @@ RectTransform:
   m_GameObject: {fileID: 729705912032731217}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: -1.062}
-  m_LocalScale: {x: 0.002, y: 0.002, z: 0.002}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8271863371876546188}
+  - {fileID: 8487087643451203060}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -236,7 +237,7 @@ Canvas:
   m_GameObject: {fileID: 729705912032731217}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 2
+  m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -271,7 +272,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &7672453019768141037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -345,7 +346,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 200}
+  m_SizeDelta: {x: 0, y: 240}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8152558943973029620
 CanvasRenderer:
@@ -375,7 +376,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 8400000, guid: 1a7fea48d53ecc84a9e3f3c6e7d47f87, type: 2}
+  m_Texture: {fileID: 2800000, guid: 53eb6b33abb3cd5498008c0d88fa98b9, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -395,7 +396,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IgnoreLayout: 0
-  m_MinWidth: 200
+  m_MinWidth: 240
   m_MinHeight: -1
   m_PreferredWidth: -1
   m_PreferredHeight: -1
@@ -461,7 +462,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.33333334, g: 0.30980393, b: 0.20784315, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -470,8 +471,8 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 24
-    m_FontStyle: 0
+    m_FontSize: 30
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
@@ -481,7 +482,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Title
+  m_Text: Steak
 --- !u!1 &3671126092634589858
 GameObject:
   m_ObjectHideFlags: 0
@@ -950,8 +951,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 147.05, y: 0}
-  m_SizeDelta: {x: 179, y: 0}
+  m_AnchoredPosition: {x: 174.8212, y: 0}
+  m_SizeDelta: {x: 292, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2405059840763437209
 CanvasRenderer:
@@ -988,7 +989,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -997,7 +998,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 18
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -1008,11 +1009,12 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Information 1
+  m_Text: '
 
-    this is test text box
+    1. Put the Meat on the Cutting Board
 
-    follow the video and cooking'
+    2. Cut the Meat about
+    2.0~3.5cm'
 --- !u!1 &6416816020287668903
 GameObject:
   m_ObjectHideFlags: 0
@@ -1031,7 +1033,6 @@ GameObject:
   - component: {fileID: 7686977452157294480}
   - component: {fileID: 4924364344023662686}
   - component: {fileID: 5790426926636871798}
-  - component: {fileID: 3374957541499672618}
   m_Layer: 5
   m_Name: ModalSingleButton
   m_TagString: Untagged
@@ -1058,10 +1059,10 @@ RectTransform:
   m_Father: {fileID: 1650987294871926911}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 147.05, y: 0}
-  m_SizeDelta: {x: 294.1, y: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -200, y: -254}
+  m_SizeDelta: {x: 349.6424, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &955434730156085986
 Canvas:
@@ -1107,7 +1108,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &954672123172290469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1146,7 +1147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.7490196}
+  m_Color: {r: 0.9176471, g: 0.909804, b: 0.87843144, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1236,39 +1237,69 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   texts:
   - 
---- !u!328 &3374957541499672618
-VideoPlayer:
+--- !u!1001 &7644125078104299913
+PrefabInstance:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1650987294871926911}
+    m_Modifications:
+    - target: {fileID: 2296082081291945085, guid: 3f7e3e2f705b8f7458d5d6f0f4d131f7, type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2296082081291945085, guid: 3f7e3e2f705b8f7458d5d6f0f4d131f7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -188.82996
+      objectReference: {fileID: 0}
+    - target: {fileID: 2296082081291945085, guid: 3f7e3e2f705b8f7458d5d6f0f4d131f7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 111.65216
+      objectReference: {fileID: 0}
+    - target: {fileID: 2296082081291945085, guid: 3f7e3e2f705b8f7458d5d6f0f4d131f7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10.55618
+      objectReference: {fileID: 0}
+    - target: {fileID: 2296082081291945085, guid: 3f7e3e2f705b8f7458d5d6f0f4d131f7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2296082081291945085, guid: 3f7e3e2f705b8f7458d5d6f0f4d131f7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2296082081291945085, guid: 3f7e3e2f705b8f7458d5d6f0f4d131f7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2296082081291945085, guid: 3f7e3e2f705b8f7458d5d6f0f4d131f7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2296082081291945085, guid: 3f7e3e2f705b8f7458d5d6f0f4d131f7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2296082081291945085, guid: 3f7e3e2f705b8f7458d5d6f0f4d131f7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2296082081291945085, guid: 3f7e3e2f705b8f7458d5d6f0f4d131f7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4277713129134698143, guid: 3f7e3e2f705b8f7458d5d6f0f4d131f7, type: 3}
+      propertyPath: m_Name
+      value: TutorialVideo
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3f7e3e2f705b8f7458d5d6f0f4d131f7, type: 3}
+--- !u!4 &8487087643451203060 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2296082081291945085, guid: 3f7e3e2f705b8f7458d5d6f0f4d131f7, type: 3}
+  m_PrefabInstance: {fileID: 7644125078104299913}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6416816020287668903}
-  m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 42ab5e1773cfced4c91af50d8b1899be, type: 3}
-  m_TargetCameraAlpha: 1
-  m_TargetCamera3DLayout: 0
-  m_TargetCamera: {fileID: 0}
-  m_TargetTexture: {fileID: 0}
-  m_TimeReference: 0
-  m_TargetMaterialRenderer: {fileID: 0}
-  m_TargetMaterialProperty: <noninit>
-  m_RenderMode: 2
-  m_AspectRatio: 2
-  m_DataSource: 0
-  m_TimeUpdateMode: 2
-  m_PlaybackSpeed: 1
-  m_AudioOutputMode: 2
-  m_TargetAudioSources:
-  - {fileID: 0}
-  m_DirectAudioVolumes:
-  - 1
-  m_Url: 
-  m_EnabledAudioTracks: 01
-  m_DirectAudioMutes: 00
-  m_ControlledAudioTrackCount: 1
-  m_PlayOnAwake: 1
-  m_SkipOnDrop: 1
-  m_Looping: 0
-  m_WaitForFirstFrame: 1
-  m_FrameReadyEventEnabled: 0
-  m_VideoShaders: []

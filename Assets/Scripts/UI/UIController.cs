@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class UIController : MonoBehaviour
 {
+    [SerializeField]
+    TimeTextManager timeTextManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +16,10 @@ public class UIController : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void SelectMenu(GameObject menu)
+    {
+        timeTextManager.StartTime();
     }
 }
