@@ -5,5 +5,4 @@ using UnityEngine;
 public class CheckPotatoSaladCook : MonoBehaviour
 {
     public bool isWashedHand = false;
-
 }
