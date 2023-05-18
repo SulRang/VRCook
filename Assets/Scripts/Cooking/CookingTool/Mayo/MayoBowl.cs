@@ -15,7 +15,6 @@ public class MayoBowl : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        Debug.Log(other.gameObject.name);
         if(mayoAmount < 1.0f)
         {
             if (other.gameObject.name == "MayoCollider" && mayoSauceBottle.isSaucePushed)
