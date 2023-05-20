@@ -20,14 +20,14 @@ public class ShakerScript : MonoBehaviour
     }
     private void Update()
     {
-        print((prevPosition - transform.position).magnitude);
         // Check if the cooldown timer has expired
         if (cooldownTimer <= 0f)
         {
             if((prevPosition.y - transform.position.y) > rotationVelocityThreshold * Time.deltaTime)
             {
-                if ((transform.eulerAngles.x >= rotationThresholdMax && transform.eulerAngles.x <= rotationThresholdMin) ||
-                (transform.eulerAngles.z >= rotationThresholdMax && transform.eulerAngles.z <= rotationThresholdMin))
+                Vector3 euler = transform.eulerAngles;
+                if ((euler.x >= rotationThresholdMax && euler.x <= rotationThresholdMin) ||
+                (euler.z >= rotationThresholdMax && euler.z <= rotationThresholdMin))
                 {
                     // Check if the velocity is faster than the threshold
                     particleSystem.Play();

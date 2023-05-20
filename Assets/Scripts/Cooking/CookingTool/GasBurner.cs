@@ -9,7 +9,7 @@ public class GasBurner : MonoBehaviour
 
     private void Awake()
     {
-        gasSwitch = GetComponentInChildren<GasBurnerSwitch>();
+        gasSwitch = transform.GetChild(0).GetComponentInChildren<GasBurnerSwitch>();
         thermal = GetComponent<ThermalObject>();
     }
 
