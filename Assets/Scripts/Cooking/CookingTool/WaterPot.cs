@@ -12,6 +12,8 @@ public class WaterPot : MonoBehaviour
     private ThermalObject waterTemperature;
     [SerializeField]
     private GameObject waterSteam;
+    [SerializeField]
+    private List<BasicIndegridients> potatoSlices;
 
     private float bubbleMatMin = 0.0f;
     private float bubbleMatMax = 0.6f;
@@ -28,6 +30,7 @@ public class WaterPot : MonoBehaviour
         waterBubbleSound = transform.GetChild(4).GetComponent<AudioSource>();
         waterSteam = transform.GetChild(3).gameObject;
         waterTemperature = GetComponent<ThermalObject>();
+        potatoSlices = new List<BasicIndegridients>();
     }
 
     private void Update()
@@ -60,15 +63,37 @@ public class WaterPot : MonoBehaviour
             waterBubbleSound.volume = soundMin;
         }
 
+        CheckPotatoTemp();
+    }
 
+    private void CheckPotatoTemp()
+    {
+        float maxTemp = CheckPotatoSaladCook.instance.maxPotatoTemp;
+        for (int i = 0; i < potatoSlices.Count; i++)
+        {
+            
+            if(potatoSlices[i].temperature > maxTemp)
+            {
+                maxTemp = potatoSlices[i].temperature;
+            }
+        }
+        CheckPotatoSaladCook.instance.maxPotatoTemp = maxTemp;
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.GetComponent<BasicIndegridients>() != null)
         {
-            BasicIndegridients indegridients = other.gameObject.GetComponent<BasicIndegridients>();
-            indegridients.isWet = true;
+            other.gameObject.GetComponent<BasicIndegridients>().isWet = true;
+            potatoSlices.Add(other.GetComponent<BasicIndegridients>());
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.gameObject.name == "leftSide" || other.gameObject.name == "rightSide")
+        {
+            potatoSlices.Clear();
         }
     }
 

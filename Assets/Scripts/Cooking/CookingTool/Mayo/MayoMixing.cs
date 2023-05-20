@@ -56,6 +56,7 @@ public class MayoMixing : MonoBehaviour
                     }
                 }
                 spoonPrevPosition = target.position;
+                CheckPotatoSaladCook.instance.mixingTime += Time.deltaTime;
             }
             else
             {
