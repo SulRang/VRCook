@@ -14,6 +14,9 @@ public class MayoMixing : MonoBehaviour
     private float spoonmovingThreshhold = 5.0f;
     public int rotationState = 0;
     public float rotationSpeed = 5.0f;
+    private bool isrotating = false;
+    private bool isSpoonExited = false;
+
     // rightSide leftSide
 
     private void OnTriggerEnter(Collider other)
@@ -21,37 +24,74 @@ public class MayoMixing : MonoBehaviour
         if(other.gameObject.name == "rightSide" || other.gameObject.name == "leftSide")
         {
             potatoPieces.Add(other.gameObject);
+            StartCoroutine(WaitForAdd(other.gameObject));
         }
     }
+
+    IEnumerator WaitForAdd(GameObject obj)
+    {
+        yield return new WaitForSeconds(0.2f);
+        obj.GetComponent<Rigidbody>().isKinematic = true;
+        obj.GetComponent<BoxCollider>().isTrigger = false;
+    }
+
     private void OnTriggerStay(Collider other)
     {
         Transform target = other.gameObject.transform;
-        if (other.gameObject.name == "Convex Colliders" && other.transform.parent.gameObject.name == "Spoon")
+        if (other.gameObject.name == "Spoon")
         {
-            if (spoonPrevPosition != Vector3.zero)
+            isSpoonExited = false;
+            if (other.transform.position - spoonPrevPosition != Vector3.zero)
             {
                 Debug.Log("회전각이다!!");
                 for (int i = 0; i < potatoPieces.Count; i++)
                 {
                     if (rotationState == 1)
                     {
-                        potatoPieces[i].transform.Rotate(midPosition.position, 5.0f * Time.deltaTime);
+                        potatoPieces[i].transform.RotateAround(midPosition.position, Vector3.up, 50.0f * Time.deltaTime);
                     }
                     else if (rotationState == 2)
                     {
-                        potatoPieces[i].transform.Rotate(midPosition.position, -5.0f * Time.deltaTime);
+                        potatoPieces[i].transform.RotateAround(midPosition.position, Vector3.up, -50.0f * Time.deltaTime);
                     }
                 }
                 spoonPrevPosition = target.position;
             }
             else
             {
-                spoonPrevPosition = other.gameObject.transform.position;
+                spoonPrevPosition = other.transform.position;
             }
         }
-            
+        
+    }
 
 
+    IEnumerator SpoonExitDelay()
+    {
+        yield return new WaitForSeconds(1.0f);
+        if(isSpoonExited)
+        {
+            ActivatePotatoCollider();
+        }
+    }
+
+
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.gameObject.name == "Spoon")
+        {
+            isSpoonExited = true;
+            StartCoroutine(SpoonExitDelay());
+        }
+    }
+
+    private void ActivatePotatoCollider()
+    {
+        for(int i = 0; i < potatoPieces.Count; i++)
+        {
+            potatoPieces[i].GetComponent<Rigidbody>().isKinematic = false;
+            potatoPieces[i].GetComponent<BoxCollider>().isTrigger = true;
+        }
     }
     // Start is called before the first frame update
     void Start()
