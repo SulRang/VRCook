@@ -39,5 +39,6 @@ public class TrackingUI : MonoBehaviour
         transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
         Vector3 lookAtPos = new Vector3(target.transform.position.x, transform.position.y, target.transform.position.z);
         transform.LookAt(lookAtPos);
+        transform.Rotate(new Vector3(0, 180, 0));
     }
 }

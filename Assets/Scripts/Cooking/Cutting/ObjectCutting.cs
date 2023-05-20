@@ -161,8 +161,11 @@ public class ObjectCutting
         right_HalfMesh.normals = right_Final_normals.ToArray();
         right_HalfMesh.uv = right_Final_uvs.ToArray();
 
+
         victim.name = "leftSide";
         victim.GetComponent<MeshFilter>().mesh = left_HalfMesh;
+        GameObject.Destroy(victim.GetComponent<BoxCollider>());
+        victim.AddComponent<BoxCollider>();
 
         Material[] mats = new Material[] { victim.GetComponent<MeshRenderer>().material, capMaterial };
 
@@ -175,11 +178,12 @@ public class ObjectCutting
 
 
         leftSideObj.GetComponent<MeshRenderer>().materials = mats;
-        rightSideObj.GetComponent<MeshRenderer>().materials = mats;
+
 
         rightSideObj.transform.localScale = leftSideObj.transform.localScale;
-//        rightSideObj.AddComponent<MeatCutting>();
-//        rightSideObj.AddComponent<CapsuleCollider>();
+        rightSideObj.GetComponent<MeshRenderer>().materials = mats;
+        rightSideObj.AddComponent<MeatCutting>();
+        rightSideObj.AddComponent<BoxCollider>();
 
         return new GameObject[] { leftSideObj, rightSideObj };
 
