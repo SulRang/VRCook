@@ -32,6 +32,7 @@ public class ShakerScript : MonoBehaviour
                     // Check if the velocity is faster than the threshold
                     particleSystem.Play();
                     cooldownTimer = cooldownTime;  // Reset the cooldown timer
+                    transform.GetComponentInChildren<ShakingCheck>().CheckShakingSalt();
                 }
             }
             // Check if the shaker is pointing downwards

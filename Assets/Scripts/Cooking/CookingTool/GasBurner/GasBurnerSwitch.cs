@@ -13,7 +13,6 @@ public class GasBurnerSwitch : MonoBehaviour
 
     private AudioSource audioSouce;
 
-    public bool isPressed = false;
     public bool fireOn = false;
     public float switchInput = 0.0f;
 
@@ -33,37 +32,36 @@ public class GasBurnerSwitch : MonoBehaviour
             transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z + 360f));
         }
 
-        if (isPressed && switchInput > 0.1f && switchInput < 0.9f)
+        if (switchInput > 0.05f && switchInput < 0.95f)
         {
             fireOn = true;
-            isPressed = false;
         }
-        else if(!isPressed && switchInput < 0.1f && switchInput < 0.9f)
+        else if(switchInput < 0.05f && switchInput < 0.95f)
         {
             fireOn = false;
         }
         
-        if(isPressed && !fireOn)
+        if(fireOn)
         {
-            if (audioSouce.clip != sparkAudio)
+            if ((audioSouce.clip == null))
             {
                 audioSouce.clip = sparkAudio;
                 audioSouce.Play();
+                StartCoroutine(sparkCoroutine());
             }
         }
-        else if(fireOn)
-        {
-            if(audioSouce.clip != fireOnAudio)
-            {
-                audioSouce.clip = fireOnAudio;
-                audioSouce.Play();
-            }
-        }
-        else if(!isPressed && !fireOn)
+        else if(!fireOn)
         {
             audioSouce.clip = null;
             audioSouce.Pause();
         }
+    }
+
+    IEnumerator sparkCoroutine()
+    {
+        yield return new WaitForSeconds(1.0f);
+        audioSouce.clip = fireOnAudio;
+        audioSouce.Play();
     }
 
 
