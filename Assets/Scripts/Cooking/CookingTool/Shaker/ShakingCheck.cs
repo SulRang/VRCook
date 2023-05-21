@@ -35,6 +35,10 @@ public class ShakingCheck : MonoBehaviour
             {
                 CheckPotatoSaladCook.instance.saltShakingCount++;
             }
+            else if(transform.parent.gameObject.name == "Parsley")
+            {
+                CheckPotatoSaladCook.instance.parsleyShakingCount++;
+            }
 
         }
     }

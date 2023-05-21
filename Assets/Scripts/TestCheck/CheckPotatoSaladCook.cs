@@ -23,4 +23,5 @@ public class CheckPotatoSaladCook : MonoBehaviour
     public float mixingTime = 0.0f; // 감자 섞는 시간.
     public int saltShakingCount = 0; // 감자 조각 위에서 소금 뿌린 횟수.
     public int pepperShakingCount = 0;// 감자 조각 위에서 후추 뿌린 횟수.
+    public int parsleyShakingCount = 0;// 감자 조각 위에서 후추 뿌린 횟수.
 }
