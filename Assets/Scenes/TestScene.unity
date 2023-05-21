@@ -6713,7 +6713,6 @@ MonoBehaviour:
   sparkAudio: {fileID: 8300000, guid: ec95f4e824eb3d0439257ed95f68e545, type: 3}
   fireComeOutAudio: {fileID: 8300000, guid: b66404f4cd707264e9fb5f9bf898a2f0, type: 3}
   fireOnAudio: {fileID: 8300000, guid: a82d87a5edf89094c94abecb1675dfd6, type: 3}
-  isPressed: 0
   fireOn: 0
   switchInput: 0
 --- !u!114 &422195642
@@ -8850,7 +8849,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 8c4aee7c47bb00a43add92155981bf1f, type: 3}
       propertyPath: m_RootOrder
-      value: 26
+      value: 27
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8c4aee7c47bb00a43add92155981bf1f, type: 3}
       propertyPath: m_LocalScale.x
@@ -12174,7 +12173,6 @@ MonoBehaviour:
   sparkAudio: {fileID: 8300000, guid: ec95f4e824eb3d0439257ed95f68e545, type: 3}
   fireComeOutAudio: {fileID: 8300000, guid: b66404f4cd707264e9fb5f9bf898a2f0, type: 3}
   fireOnAudio: {fileID: 8300000, guid: a82d87a5edf89094c94abecb1675dfd6, type: 3}
-  isPressed: 0
   fireOn: 0
   switchInput: 0
 --- !u!114 &1201167511
@@ -14967,7 +14965,6 @@ MonoBehaviour:
   sparkAudio: {fileID: 8300000, guid: ec95f4e824eb3d0439257ed95f68e545, type: 3}
   fireComeOutAudio: {fileID: 8300000, guid: b66404f4cd707264e9fb5f9bf898a2f0, type: 3}
   fireOnAudio: {fileID: 8300000, guid: a82d87a5edf89094c94abecb1675dfd6, type: 3}
-  isPressed: 0
   fireOn: 0
   switchInput: 0
 --- !u!114 &1676961294
@@ -15757,6 +15754,7 @@ MonoBehaviour:
   mixingTime: 0
   saltShakingCount: 0
   pepperShakingCount: 0
+  parsleyShakingCount: 0
 --- !u!1001 &1790626034
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17629,6 +17627,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7178785864835129733, guid: 4758987109c94d644a90bbabb18d7e74, type: 3}
+      propertyPath: CollisionModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17770,6 +17772,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 745291058786573679, guid: cfb07f8da9cbd3e43b6418a5c537ef2e, type: 3}
+      propertyPath: CollisionModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5926343526942813458, guid: cfb07f8da9cbd3e43b6418a5c537ef2e, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -18014,6 +18020,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4309594537038873277, guid: aa85d23befe5aa849a66cb7ca86b79e4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4400529711692217026, guid: aa85d23befe5aa849a66cb7ca86b79e4, type: 3}
+      propertyPath: CollisionModule.enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4843989121873283970, guid: aa85d23befe5aa849a66cb7ca86b79e4, type: 3}
