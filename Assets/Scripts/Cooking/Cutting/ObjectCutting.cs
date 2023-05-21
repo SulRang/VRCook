@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 public class ObjectCutting
 {
+    [SerializeField]
+    static float childScale = 3.0f;
 
     private static Plane blade;
     private static Transform victim_transform;
@@ -162,10 +164,16 @@ public class ObjectCutting
         right_HalfMesh.uv = right_Final_uvs.ToArray();
 
 
+        if (left_HalfMesh.triangles.Length < 5 || right_HalfMesh.triangles.Length < 5)
+        {
+            return new GameObject[] { victim };
+        }
+
         victim.name = "leftSide";
         victim.GetComponent<MeshFilter>().mesh = left_HalfMesh;
-        GameObject.Destroy(victim.GetComponent<BoxCollider>());
-        victim.AddComponent<BoxCollider>();
+
+
+
 
         Material[] mats = new Material[] { victim.GetComponent<MeshRenderer>().material, capMaterial };
 
@@ -178,12 +186,17 @@ public class ObjectCutting
 
 
         leftSideObj.GetComponent<MeshRenderer>().materials = mats;
+        GameObject.Destroy(victim.GetComponent<BoxCollider>());
+        victim.AddComponent<BoxCollider>();
 
 
-        rightSideObj.transform.localScale = leftSideObj.transform.localScale;
+        rightSideObj.transform.localScale = leftSideObj.transform.localScale * childScale;
         rightSideObj.GetComponent<MeshRenderer>().materials = mats;
         rightSideObj.AddComponent<MeatCutting>();
         rightSideObj.AddComponent<BoxCollider>();
+        rightSideObj.AddComponent<Rigidbody>();
+        rightSideObj.AddComponent<BasicIndegridients>();
+        leftSideObj.AddComponent<BasicIndegridients>();
 
         return new GameObject[] { leftSideObj, rightSideObj };
 

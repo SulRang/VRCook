@@ -9,10 +9,15 @@ public class MeatCutting : MonoBehaviour
     float ctime = 0.0f;
     bool isHolding = false;
 
+    private void Start()
+    {
+        if (material == null)
+            material = transform.parent.GetComponent<MeshRenderer>().materials[1];
+    }
+
     private void Update()
     {
         ctime += Time.deltaTime;
-        Debug.Log(ctime);
         if (ctime > 10.0f)
         {
             isHolding = true;
@@ -33,8 +38,10 @@ public class MeatCutting : MonoBehaviour
     {
         if (collision.transform.tag == "Knife" && isHolding)
         {
-            GameObject[] gameObjects = ObjectCutting.Cut(gameObject, collision.transform.position, Vector3.left, material);
-            gameObjects[1].transform.transform.parent = gameObjects[0].transform;
+            Vector3 rot = new Vector3(-1 * Mathf.Cos(collision.transform.rotation.eulerAngles.y), 0, collision.transform.rotation.eulerAngles.y >0 ? 1 * Mathf.Cos(collision.transform.rotation.eulerAngles.y) * Mathf.Sin(collision.transform.rotation.eulerAngles.y) : -1 * Mathf.Cos(collision.transform.rotation.eulerAngles.y) * Mathf.Sin(collision.transform.rotation.eulerAngles.y));
+            GameObject[] gameObjects = ObjectCutting.Cut(gameObject, collision.contacts[0].point, rot, material);
+            if(gameObjects.Length > 1)
+                gameObjects[1].transform.transform.parent = gameObjects[0].transform;
             isHolding = false;
         }
     }
