@@ -33,7 +33,8 @@ public class MaterialChangeObject : MonoBehaviour
             mat.material.color = color;
             materials.Add(mat.material);
         }
-        meshRenderer.SetMaterials(materials);
+        //meshRenderer.SetMaterials(materials);
+        //meshRenderer.
     }
 
     private void Update()
@@ -57,7 +58,7 @@ public class MaterialChangeObject : MonoBehaviour
             {
                 float alpha = Mathf.InverseLerp(temperatureMaterials[i - 1].maxTemperature, temperatureMaterials[i].minTemperature, temperature);
                 SetMaterialAlpha(i, alpha);
-                SetMaterialAlpha(i-1, 1 - alpha);
+                SetMaterialAlpha(i-1, 1 - alpha / 3);
             }
             else if(i == temperatureMaterials.Count - 1 && temperature >= temperatureMaterials[i].maxTemperature)
             {
