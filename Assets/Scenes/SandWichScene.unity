@@ -12746,7 +12746,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 820519049491736077, guid: f25f2c4fb32370003a15a4031cc60a1e, type: 3}
       propertyPath: m_Name
-      value: lettuce (1)
+      value: lettuce
       objectReference: {fileID: 0}
     - target: {fileID: 5379126093368520710, guid: f25f2c4fb32370003a15a4031cc60a1e, type: 3}
       propertyPath: m_RootOrder

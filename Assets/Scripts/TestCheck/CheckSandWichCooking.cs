@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CheckSteakCook : MonoBehaviour
+public class CheckSandWichCooking : MonoBehaviour
 {
-    public static CheckSteakCook instance;
+    public static CheckSandWichCooking instance;
 
     private void Awake()
     {
@@ -18,4 +18,6 @@ public class CheckSteakCook : MonoBehaviour
         }
     }
 
+    public bool isWashedHand = false;
+    public bool isWashedlettuce = false;
 }
