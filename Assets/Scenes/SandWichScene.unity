@@ -940,93 +940,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8456521834423819231, guid: a9f33fd9076bf5018960fe9718f24914, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 197082951}
-    - targetCorrespondingSourceObject: {fileID: 8456521834423819231, guid: a9f33fd9076bf5018960fe9718f24914, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 197082950}
-    - targetCorrespondingSourceObject: {fileID: 8456521834423819231, guid: a9f33fd9076bf5018960fe9718f24914, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 197082952}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9f33fd9076bf5018960fe9718f24914, type: 3}
---- !u!1 &197082949 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8456521834423819231, guid: a9f33fd9076bf5018960fe9718f24914, type: 3}
-  m_PrefabInstance: {fileID: 197082948}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &197082950
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 197082949}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.200111, y: 2.1193936, z: 0.013873549}
-  m_Center: {x: -0.015861182, y: 0.0108089475, z: -1.5360434e-16}
---- !u!54 &197082951
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 197082949}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!114 &197082952
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 197082949}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2256af6a649e974e9e16535e1a5215c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  initialTemperature: 20
-  temperature: 20
-  specificHeat: 1
-  volume: 1
-  thermalConductivity: 1
-  limitTemperature: 100
-  temperatureLockInInitial: 0
-  isTemperatureChangeEnabled: 0
-  isWet: 0
-  peekTemperature: 0
-  lowestTemperature: 100
 --- !u!1001 &197534687
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1259,93 +1174,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3285072015776859545, guid: ff195de281e420e7cb01b37fe0a05d06, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 216391525}
-    - targetCorrespondingSourceObject: {fileID: 3285072015776859545, guid: ff195de281e420e7cb01b37fe0a05d06, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 216391524}
-    - targetCorrespondingSourceObject: {fileID: 3285072015776859545, guid: ff195de281e420e7cb01b37fe0a05d06, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 216391526}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff195de281e420e7cb01b37fe0a05d06, type: 3}
---- !u!1 &216391523 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3285072015776859545, guid: ff195de281e420e7cb01b37fe0a05d06, type: 3}
-  m_PrefabInstance: {fileID: 216391522}
-  m_PrefabAsset: {fileID: 0}
---- !u!54 &216391524
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 216391523}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!65 &216391525
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 216391523}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.5810126, y: 1.5810131, z: 0.1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &216391526
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 216391523}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2256af6a649e974e9e16535e1a5215c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  initialTemperature: 20
-  temperature: 20
-  specificHeat: 1
-  volume: 1
-  thermalConductivity: 1
-  limitTemperature: 100
-  temperatureLockInInitial: 0
-  isTemperatureChangeEnabled: 0
-  isWet: 0
-  peekTemperature: 0
-  lowestTemperature: 100
 --- !u!1001 &233869074
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6617,39 +6447,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1325141102793003344, guid: 7d37c0f571aafddfa9bd67ce37c16a8d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 314954990}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d37c0f571aafddfa9bd67ce37c16a8d, type: 3}
---- !u!1 &314954989 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1325141102793003344, guid: 7d37c0f571aafddfa9bd67ce37c16a8d, type: 3}
-  m_PrefabInstance: {fileID: 314954988}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &314954990
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 314954989}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2256af6a649e974e9e16535e1a5215c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  initialTemperature: 20
-  temperature: 20
-  specificHeat: 1
-  volume: 1
-  thermalConductivity: 1
-  limitTemperature: 100
-  temperatureLockInInitial: 0
-  isTemperatureChangeEnabled: 0
-  isWet: 0
-  peekTemperature: 0
-  lowestTemperature: 100
 --- !u!4 &337902140 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7a34ddaf0acb2644cb2cdd3a5a49dc43, type: 3}
@@ -7479,93 +7278,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3285072015776859545, guid: ff195de281e420e7cb01b37fe0a05d06, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 445744729}
-    - targetCorrespondingSourceObject: {fileID: 3285072015776859545, guid: ff195de281e420e7cb01b37fe0a05d06, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 445744728}
-    - targetCorrespondingSourceObject: {fileID: 3285072015776859545, guid: ff195de281e420e7cb01b37fe0a05d06, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 445744730}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff195de281e420e7cb01b37fe0a05d06, type: 3}
---- !u!1 &445744727 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3285072015776859545, guid: ff195de281e420e7cb01b37fe0a05d06, type: 3}
-  m_PrefabInstance: {fileID: 445744726}
-  m_PrefabAsset: {fileID: 0}
---- !u!54 &445744728
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 445744727}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!65 &445744729
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 445744727}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.5810126, y: 1.5810131, z: 0.1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &445744730
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 445744727}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2256af6a649e974e9e16535e1a5215c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  initialTemperature: 20
-  temperature: 20
-  specificHeat: 1
-  volume: 1
-  thermalConductivity: 1
-  limitTemperature: 100
-  temperatureLockInInitial: 0
-  isTemperatureChangeEnabled: 0
-  isWet: 0
-  peekTemperature: 0
-  lowestTemperature: 100
 --- !u!1001 &448998755
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10729,39 +10443,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 820519049491736077, guid: f25f2c4fb32370003a15a4031cc60a1e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 949966643}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f25f2c4fb32370003a15a4031cc60a1e, type: 3}
---- !u!1 &949966642 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 820519049491736077, guid: f25f2c4fb32370003a15a4031cc60a1e, type: 3}
-  m_PrefabInstance: {fileID: 949966641}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &949966643
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 949966642}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2256af6a649e974e9e16535e1a5215c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  initialTemperature: 20
-  temperature: 20
-  specificHeat: 1
-  volume: 1
-  thermalConductivity: 1
-  limitTemperature: 100
-  temperatureLockInInitial: 0
-  isTemperatureChangeEnabled: 0
-  isWet: 0
-  peekTemperature: 0
-  lowestTemperature: 100
 --- !u!4 &954466495 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f2365b336965d194e86a2ee0c5d59e01, type: 3}
@@ -13851,39 +13534,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1325141102793003344, guid: 7d37c0f571aafddfa9bd67ce37c16a8d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1536644993}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d37c0f571aafddfa9bd67ce37c16a8d, type: 3}
---- !u!1 &1536644992 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1325141102793003344, guid: 7d37c0f571aafddfa9bd67ce37c16a8d, type: 3}
-  m_PrefabInstance: {fileID: 1536644991}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1536644993
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1536644992}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2256af6a649e974e9e16535e1a5215c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  initialTemperature: 20
-  temperature: 20
-  specificHeat: 1
-  volume: 1
-  thermalConductivity: 1
-  limitTemperature: 100
-  temperatureLockInInitial: 0
-  isTemperatureChangeEnabled: 0
-  isWet: 0
-  peekTemperature: 0
-  lowestTemperature: 100
 --- !u!4 &1546013663 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f2365b336965d194e86a2ee0c5d59e01, type: 3}
@@ -14252,6 +13904,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isWashedHand: 0
+  isWashedPotato: 0
+  isWashedOnion: 0
   maxPotatoTemp: 0
   mixingTime: 0
   saltShakingCount: 0
@@ -14865,39 +14519,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8456521834423819231, guid: a9f33fd9076bf5018960fe9718f24914, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1716816476}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9f33fd9076bf5018960fe9718f24914, type: 3}
---- !u!1 &1716816475 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8456521834423819231, guid: a9f33fd9076bf5018960fe9718f24914, type: 3}
-  m_PrefabInstance: {fileID: 1716816474}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1716816476
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1716816475}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2256af6a649e974e9e16535e1a5215c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  initialTemperature: 20
-  temperature: 20
-  specificHeat: 1
-  volume: 1
-  thermalConductivity: 1
-  limitTemperature: 100
-  temperatureLockInInitial: 0
-  isTemperatureChangeEnabled: 0
-  isWet: 0
-  peekTemperature: 0
-  lowestTemperature: 100
 --- !u!1001 &1716944953
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16774,39 +16397,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1325141102793003344, guid: 7d37c0f571aafddfa9bd67ce37c16a8d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2074912838}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d37c0f571aafddfa9bd67ce37c16a8d, type: 3}
---- !u!1 &2074912837 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1325141102793003344, guid: 7d37c0f571aafddfa9bd67ce37c16a8d, type: 3}
-  m_PrefabInstance: {fileID: 2074912836}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2074912838
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2074912837}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2256af6a649e974e9e16535e1a5215c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  initialTemperature: 20
-  temperature: 20
-  specificHeat: 1
-  volume: 1
-  thermalConductivity: 1
-  limitTemperature: 100
-  temperatureLockInInitial: 0
-  isTemperatureChangeEnabled: 0
-  isWet: 0
-  peekTemperature: 0
-  lowestTemperature: 100
 --- !u!1001 &2089581668
 PrefabInstance:
   m_ObjectHideFlags: 0
