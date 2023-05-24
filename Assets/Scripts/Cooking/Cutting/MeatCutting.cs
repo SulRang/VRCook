@@ -8,6 +8,22 @@ public class MeatCutting : MonoBehaviour
     Material material;
     float ctime = 0.0f;
     bool isHolding = false;
+    bool isStay = false;
+
+    private void OnTriggerExit(Collider other)
+    {
+        //isHolding = true;
+        isStay = false;
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        isStay = true;
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        isStay = true;
+    }
 
     private void Start()
     {
@@ -18,7 +34,7 @@ public class MeatCutting : MonoBehaviour
     private void Update()
     {
         ctime += Time.deltaTime;
-        if (ctime > 10.0f)
+        if (ctime > 0.5f && !isStay)
         {
             isHolding = true;
             ctime = 0.0f;
@@ -38,11 +54,13 @@ public class MeatCutting : MonoBehaviour
     {
         if (collision.transform.tag == "Knife" && isHolding)
         {
-            Vector3 rot = new Vector3(-1 * Mathf.Cos(collision.transform.rotation.eulerAngles.y), 0, collision.transform.rotation.eulerAngles.y >0 ? 1 * Mathf.Cos(collision.transform.rotation.eulerAngles.y) * Mathf.Sin(collision.transform.rotation.eulerAngles.y) : -1 * Mathf.Cos(collision.transform.rotation.eulerAngles.y) * Mathf.Sin(collision.transform.rotation.eulerAngles.y));
+            float angle = (360 - collision.transform.rotation.eulerAngles.y) * Mathf.Deg2Rad;
+            Vector3 rot = new Vector3(-1 * Mathf.Cos(angle), 0,-1 * Mathf.Sin(angle) * Mathf.Cos(angle));
             GameObject[] gameObjects = ObjectCutting.Cut(gameObject, collision.contacts[0].point, rot, material);
             if(gameObjects.Length > 1)
                 gameObjects[1].transform.transform.parent = gameObjects[0].transform;
             isHolding = false;
+            collision.transform.GetComponent<BoxCollider>().isTrigger = true;
         }
     }
 }

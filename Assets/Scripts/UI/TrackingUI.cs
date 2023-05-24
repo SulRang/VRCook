@@ -16,6 +16,8 @@ public class TrackingUI : MonoBehaviour
 
     void Awake()
     {
+        if (cameraFollow == null)
+            cameraFollow = Camera.main;
         target = cameraFollow.transform;
     }
 

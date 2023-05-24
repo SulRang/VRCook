@@ -6,6 +6,7 @@ TagManager:
   tags:
   - holdable
   - Knife
+  - Hand
   layers:
   - Default
   - TransparentFX
