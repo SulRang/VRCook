@@ -19,7 +19,7 @@ public class MayoBowl : MonoBehaviour
         {
             if (other.gameObject.name == "MayoCollider" && mayoSauceBottle.isSaucePushed)
             {
-                mayoAmount += 0.01f * Time.deltaTime;
+                mayoAmount += 0.001f * Time.deltaTime;
             }
         }
     }
