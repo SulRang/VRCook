@@ -11,12 +11,18 @@ public class SwitchHold : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Hand")
+        {
             target = other.transform;
+            isSelect = true;
+        }
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.tag == "Hand")
-            target = other.transform;
+        {
+//          target = other.transform;
+            isSelect = false;
+        }
     }
     // Start is called before the first frame update
     void Start()

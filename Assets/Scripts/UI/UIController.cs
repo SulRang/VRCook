@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIController : MonoBehaviour
 {
+    int menuIdx;
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -15,4 +16,15 @@ public class UIController : MonoBehaviour
     {
         
     }
+
+    public void SelectMenu(int idx)
+    {
+        menuIdx = idx;
+    }
+
+    public void Confirm()
+    {
+        SceneManager.LoadScene(menuIdx + 1);
+    }
+
 }
