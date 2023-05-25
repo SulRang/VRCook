@@ -10,6 +10,14 @@ public class MeatCutting : MonoBehaviour
     bool isHolding = false;
     bool isStay = false;
 
+    [SerializeField]
+    float size = 0.15f;
+
+    public void SetSize(float _size)
+    {
+        size = _size;
+    }
+
     private void OnTriggerExit(Collider other)
     {
         //isHolding = true;
@@ -56,7 +64,7 @@ public class MeatCutting : MonoBehaviour
         {
             float angle = (360 - collision.transform.rotation.eulerAngles.y) * Mathf.Deg2Rad;
             Vector3 rot = new Vector3(-1 * Mathf.Cos(angle), 0,-1 * Mathf.Sin(angle) * Mathf.Cos(angle));
-            GameObject[] gameObjects = ObjectCutting.Cut(gameObject, collision.contacts[0].point, rot, material);
+            GameObject[] gameObjects = ObjectCutting.Cut(gameObject, collision.contacts[0].point, rot, material, size);
             if(gameObjects.Length > 1)
                 gameObjects[1].transform.transform.parent = gameObjects[0].transform;
             isHolding = false;

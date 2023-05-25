@@ -13,10 +13,19 @@ public class TimeTextManager : MonoBehaviour
 
     [SerializeField]
     Text timeText;
+
+    [SerializeField]
+    Image image;
+
+    [SerializeField]
+    Sprite sprite;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        StartTime();
+        if(image.sprite == null)
+            image.sprite = sprite;
     }
 
     // Update is called once per frame

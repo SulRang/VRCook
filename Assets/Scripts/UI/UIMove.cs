@@ -49,7 +49,7 @@ public class UIMove : MonoBehaviour
 
     public void DragMoveUI()
     {
-        if (isSelect)
+        if (isSelect && target != null)
         {
             Vector2 targetPos = new Vector2(target.position.x, target.position.z) - new Vector2(targetCamera.position.x, targetCamera.position.z);
             Vector2 trackPos = new Vector2(tracking.position.x, tracking.position.z) - new Vector2(targetCamera.position.x, targetCamera.position.z);

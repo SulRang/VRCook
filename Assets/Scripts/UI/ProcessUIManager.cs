@@ -21,7 +21,13 @@ public class ProcessUIManager : MonoBehaviour
 
     [SerializeField]
     VideoClip[] videoClips = new VideoClip[10];
-    
+
+    [SerializeField]
+    Button nextButton;
+
+    [SerializeField]
+    Button confirmButton;
+
 
     // Start is called before the first frame update
     void Start()
@@ -51,5 +57,21 @@ public class ProcessUIManager : MonoBehaviour
         ProcessManager.Instance.idx[id]++;
         text.text = texts[ProcessManager.Instance.idx[id]];
         video.clip = videoClips[ProcessManager.Instance.idx[id]];
+        if (ProcessManager.Instance.idx[id] + 1 >= 10)
+        {
+            confirmButton.gameObject.SetActive(true);
+            nextButton.gameObject.SetActive(false);
+        }
+        else if (texts[ProcessManager.Instance.idx[id] + 1].Length < 1)
+        {
+            confirmButton.gameObject.SetActive(true);
+            nextButton.gameObject.SetActive(false);
+        }
     }
+
+    public void SetConfirm()
+    {
+
+    }
+
 }
