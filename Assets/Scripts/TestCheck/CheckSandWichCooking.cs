@@ -20,4 +20,7 @@ public class CheckSandWichCooking : MonoBehaviour
 
     public bool isWashedHand = false;
     public bool isWashedlettuce = false;
+    public int pepperShakingCount = 0;
+    public int saltShakingCount = 0;
+    public float mayoSpreadAmount = 0.0f; // %юс.
 }

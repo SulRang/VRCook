@@ -24,7 +24,6 @@ public class ShakerScript : MonoBehaviour
         if (cooldownTimer <= 0f)
         {
             Quaternion rotation = transform.rotation;
-            print(rotation);
             if ((prevPosition.y - transform.position.y) > rotationVelocityThreshold * Time.deltaTime)
             {
                 if(rotation.x < rotationThresholdMin || rotation.x > rotationThresholdMax || rotation.z < rotationThresholdMin || rotation.z > rotationThresholdMax)

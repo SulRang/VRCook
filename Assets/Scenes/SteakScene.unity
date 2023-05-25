@@ -777,6 +777,25 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &194757159 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8419076841005038988, guid: de6c7d7bf42332948bb612704c4f6cae, type: 3}
+  m_PrefabInstance: {fileID: 3366824006690618028}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &194757160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 194757159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38557a678eb8a5e46a4fa4e5df424a45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outerSteak: {fileID: 0}
+  innerSteak: {fileID: 0}
 --- !u!1001 &197534687
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6201,6 +6220,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 350805999}
+  - component: {fileID: 350806000}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -6223,6 +6243,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &350806000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 350805998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1260c6ba9cdd273408e2f8f182653cff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isWashedHand: 0
+  pepperShakingCount: 0
+  saltShakingCount: 0
+  maxSteakInsideTemperature: 0
+  maxSteakOutsideTemperature: 0
 --- !u!1001 &378106785
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11315,10 +11352,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3312378328503039110, guid: a493b7651e6cb2944a3428d7a6981390, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5292167399235015605, guid: a493b7651e6cb2944a3428d7a6981390, type: 3}
       propertyPath: m_TargetGraphic
       value: 
       objectReference: {fileID: 1178965566}
+    - target: {fileID: 8390091735828944009, guid: a493b7651e6cb2944a3428d7a6981390, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16285,10 +16330,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4330098437007606081, guid: de6c7d7bf42332948bb612704c4f6cae, type: 3}
-      propertyPath: limitTemperature
-      value: 200
-      objectReference: {fileID: 0}
     - target: {fileID: 8419076841005038988, guid: de6c7d7bf42332948bb612704c4f6cae, type: 3}
       propertyPath: m_Name
       value: MEAT
@@ -16340,7 +16381,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8419076841005038988, guid: de6c7d7bf42332948bb612704c4f6cae, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 194757160}
   m_SourcePrefab: {fileID: 100100000, guid: de6c7d7bf42332948bb612704c4f6cae, type: 3}
 --- !u!1 &8164078559786572059
 GameObject:

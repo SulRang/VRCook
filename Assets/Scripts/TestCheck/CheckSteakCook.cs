@@ -18,4 +18,9 @@ public class CheckSteakCook : MonoBehaviour
         }
     }
 
+    public bool isWashedHand = false;
+    public int pepperShakingCount = 0;
+    public int saltShakingCount = 0;
+    public float maxSteakInsideTemperature = 0;
+    public float maxSteakOutsideTemperature = 0;
 }
