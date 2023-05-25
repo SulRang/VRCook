@@ -37,6 +37,9 @@ public class TongsGrab : MonoBehaviour
         {
             isActive = true;
             target.GetComponent<Rigidbody>().isKinematic = false;
+
+            transform.parent.GetChild(0).Rotate(new Vector3(-3, 0, 0));
+            transform.parent.GetChild(1).Rotate(new Vector3(-3, 0, 0));
         }
     }
     public void UnGrabTongs()
@@ -45,6 +48,10 @@ public class TongsGrab : MonoBehaviour
         {
             isActive = false;
             target.GetComponent<Rigidbody>().isKinematic = true;
+            transform.parent.GetChild(0).Rotate(new Vector3(3, 0, 0));
+            transform.parent.GetChild(1).Rotate(new Vector3(3, 0, 0));
         }
     }
+
+
 }
