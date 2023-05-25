@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 public class ObjectCutting
 {
-    [SerializeField]
-    static float childScale = 3.0f;
-
     private static Plane blade;
     private static Transform victim_transform;
     private static Mesh victim_mesh;
@@ -59,7 +56,7 @@ public class ObjectCutting
     // capping stuff
     private static List<Vector3> createdVertexPoints = new List<Vector3>();
 
-    public static GameObject[] Cut(GameObject victim, Vector3 anchorPoint, Vector3 normalDirection, Material capMaterial)
+    public static GameObject[] Cut(GameObject victim, Vector3 anchorPoint, Vector3 normalDirection, Material capMaterial, float size)
     {
 
         victim_transform = victim.transform;
@@ -190,9 +187,10 @@ public class ObjectCutting
         victim.AddComponent<BoxCollider>();
 
 
-        rightSideObj.transform.localScale = leftSideObj.transform.localScale * childScale;
+        rightSideObj.transform.localScale = leftSideObj.transform.localScale * size;
         rightSideObj.GetComponent<MeshRenderer>().materials = mats;
         rightSideObj.AddComponent<MeatCutting>();
+        rightSideObj.GetComponent<MeatCutting>().SetSize(size);
         rightSideObj.AddComponent<BoxCollider>();
         rightSideObj.AddComponent<Rigidbody>();
         rightSideObj.AddComponent<BasicIndegridients>();
