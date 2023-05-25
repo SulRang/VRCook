@@ -6,8 +6,8 @@ public class MayoSauceBottle : MonoBehaviour
     [SerializeField]
     private ParticleSystem particleSystem;
     public bool isSaucePushed = false;
-    public float rotationThresholdMax = 140f;
-    public float rotationThresholdMin = 220f;
+    public float rotationThresholdMax = 0.9f;
+    public float rotationThresholdMin = -0.9f;
     public float rotationVelocityThreshold = 10f;
 
 
@@ -17,13 +17,12 @@ public class MayoSauceBottle : MonoBehaviour
     }
     private void Update()
     {
-        if ((transform.eulerAngles.x >= rotationThresholdMax && transform.eulerAngles.x <= rotationThresholdMin) ||
-        (transform.eulerAngles.z >= rotationThresholdMax && transform.eulerAngles.z <= rotationThresholdMin))
+        Quaternion rotation = transform.rotation;
+        if (rotation.x < rotationThresholdMin || rotation.x > rotationThresholdMax || rotation.z < rotationThresholdMin || rotation.z > rotationThresholdMax)
         {
             // Check if the velocity is faster than the threshold
             particleSystem.Play();
             isSaucePushed = true;
-
         }
         else
         {

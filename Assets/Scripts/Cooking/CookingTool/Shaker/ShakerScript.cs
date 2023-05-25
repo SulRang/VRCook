@@ -6,8 +6,8 @@ public class ShakerScript : MonoBehaviour
 {
     [SerializeField]
     private ParticleSystem particleSystem;
-    public float rotationThresholdMax = 140f;
-    public float rotationThresholdMin = 220f;
+    public float rotationThresholdMax = 0.9f;
+    public float rotationThresholdMin = -0.9f;
     public float rotationVelocityThreshold = 10f;
     public float cooldownTime = 1f;  // Time between particle emissions
 
@@ -23,11 +23,11 @@ public class ShakerScript : MonoBehaviour
         // Check if the cooldown timer has expired
         if (cooldownTimer <= 0f)
         {
-            if((prevPosition.y - transform.position.y) > rotationVelocityThreshold * Time.deltaTime)
+            Quaternion rotation = transform.rotation;
+            print(rotation);
+            if ((prevPosition.y - transform.position.y) > rotationVelocityThreshold * Time.deltaTime)
             {
-                Vector3 euler = transform.eulerAngles;
-                if ((euler.x >= rotationThresholdMax && euler.x <= rotationThresholdMin) ||
-                (euler.z >= rotationThresholdMax && euler.z <= rotationThresholdMin))
+                if(rotation.x < rotationThresholdMin || rotation.x > rotationThresholdMax || rotation.z < rotationThresholdMin || rotation.z > rotationThresholdMax)
                 {
                     // Check if the velocity is faster than the threshold
                     particleSystem.Play();
@@ -35,7 +35,7 @@ public class ShakerScript : MonoBehaviour
                     transform.GetComponentInChildren<ShakingCheck>().CheckShakingSalt();
                 }
             }
-            // Check if the shaker is pointing downwards
+
             prevPosition = transform.position;
         }
         else

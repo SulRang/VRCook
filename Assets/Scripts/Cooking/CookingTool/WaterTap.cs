@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WaterTap : MonoBehaviour
 {
@@ -43,9 +44,40 @@ public class WaterTap : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        string sceneName = SceneManager.GetActiveScene().name;
+        GameObject gameManager = GameObject.Find("GameManager");
         if(isWaterTurnedOn)
         {
-            CheckPotatoSaladCook.instance.isWashedHand = true;
+            switch (sceneName)
+            {
+                case "SaladScene":
+                    if (other.gameObject.name == "Onion")
+                    {
+                        CheckPotatoSaladCook.instance.isWashedOnion = true;
+                    }
+                    else if (other.gameObject.name == "Potato")
+                    {
+                        CheckPotatoSaladCook.instance.isWashedPotato = true;
+                    }
+                    else
+                    {
+                        CheckPotatoSaladCook.instance.isWashedHand = true;
+                    }
+                break;
+
+                case "SandWichScene":
+                    if(other.gameObject.name == "lettuce")
+                    {
+                        CheckSandWichCooking.instance.isWashedlettuce = true;
+                    }
+                    else
+                    {
+                        CheckSandWichCooking.instance.isWashedHand = true;
+                    }
+                    break;
+                case "SteakScene":
+                    break;
+            }
         }
     }
 }

@@ -91,9 +91,10 @@ public class MayoMixing : MonoBehaviour
         for(int i = 0; i < potatoPieces.Count; i++)
         {
             potatoPieces[i].GetComponent<Rigidbody>().isKinematic = false;
-            potatoPieces[i].GetComponent<BoxCollider>().isTrigger = true;
+            potatoPieces[i].GetComponent<BoxCollider>().isTrigger = false;
         }
     }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -126,6 +127,14 @@ public class MayoMixing : MonoBehaviour
         }
 
         spoonRotationPrevPosition = spoon.gameObject.transform.position;
+
+        Quaternion rot = transform.localRotation;
+        if (((rot.x < -0.5f || rot.x > 0.5f)) || (rot.y < -0.5f || rot.y > 0.5f))
+        {
+            ActivatePotatoCollider();
+            potatoPieces.Clear();
+
+        }
 
     }
 }

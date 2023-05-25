@@ -7,7 +7,7 @@ namespace WaffleWare.ConcaveRigidbodies
         public enum ColliderType { Prism, Tetrahedron, BoxOBB, BoxAABB };
         public ColliderType colliderType;
 
-        [Range(.001f, .01f)]
+        [Range(.001f, .02f)]
         public float width = .005f;
         public bool invertColliders;
         public bool centered;
