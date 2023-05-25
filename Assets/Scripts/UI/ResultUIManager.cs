@@ -1,9 +1,107 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ResultUIManager : MonoBehaviour
 {
+    [SerializeField]
+    Image[] starImage;
+
+    [SerializeField]
+    Text[] feedbackTexts;
+
+    //메뉴 id (0 : 샐러드, 1 : 샌드위치, 2: 스테이크)
+    [SerializeField]
+    int id = 0;
+
+    float resultRate = 0f;
+
+    /// <summary>
+    /// 평가 피드백 메시지 배열
+    /// </summary>
+    string[,,] texts = {
+    {//샐러드
+        {
+        "손 씻기 : 요리 전에는 항상 손을 씻어 청결을 유지해주세요",
+        "감자 씻기 : 요리 재료는 쓰기전에 항상 깨끗하게 씻어주세요",
+        "파 씻기 : 요리 재료는 쓰기전에 항상 깨끗하게 씻어주세요",
+        "",
+        ""
+        },
+        {
+        "감자 자르기 : 감자는 한입에 들어갈 정도로 작게 잘라주세요.",
+        "감자 삶기(짧음) : 감자가 덜 익었어요. 좀 더 부드럽도록 감자를 좀 더 삶아주세요.",
+        "감자 삶기(김) : 감자를 너무 많이 삶았어요. 식감이 살아있도록 조금만 짧게 삶아주세요",
+        "소스 섞기 : 소스가 덜 섞였어요 소스를 넣고 조금 더 많이 섞어주세요.",
+        ""
+        },
+        {
+        "소금(부족) : 너무 싱거워요. 소금을 조금 더 넣어주세요.",
+        "소금(과다) : 너무 짜요. 소금을 조금 줄여주세요.",
+        "후추(부족) : 너무 싱거워요. 소금을 조금 더 넣어주세요.",
+        "후추(과다) : 너무 짜요. 소금을 조금 줄여주세요.",
+        "파슬리 : 요리가 끝난 후 파슬리를 살짝 뿌려 꾸며주세요."
+        }
+    },
+    {//샌드위치
+        {
+        "손 씻기 : 요리 전에는 항상 손을 씻어 청결을 유지해주세요",
+        "양상추 씻기 : 요리 재료는 쓰기전에 항상 깨끗하게 씻어주세요.",
+        "토마토 씻기 : 요리 재료는 쓰기전에 항상 깨끗하게 씻어주세요.",
+        "",
+        ""
+        },
+        {
+        "빵 : 겉부분을 더 많이 잘라주세요",
+        "햄(짧음) : 햄이 덜 익었어요. 조금만 더 익혀주세요.",
+        "햄(김) : 햄이 너무 익었어요. 조금만 덜 익혀주세요.",
+        "",
+        ""
+        },
+        {
+        "마요네즈(적음) : 마요네즈가 너무 조금 들어갔어요. 조금만 더 넣어주세요.",
+        "마요네즈(많음) : 마요네즈가 너무 많이 들어갔어요. 조금만 덜 넣어주세요.",
+        "파 씻기 : 요리 재료는 쓰기전에 항상 깨끗하게 씻어주세요",
+        "",
+        ""
+        }
+    },
+    {//스테이크
+        {
+        "손 씻기 : 요리 전에는 항상 손을 씻어 청결을 유지해주세요",
+        "가니쉬 씻기 : 요리 재료는 쓰기전에 항상 깨끗하게 씻어주세요.",
+        "",
+        "",
+        ""
+        },
+        {
+        "스테이크(덜익음) : 스테이크가 덜 익었어요. 조금 더 익혀주세요.",
+        "스테이크(과익음) : 스테이크가 너무 익었어요. 조금 덜 익혀주세요.",
+        "스테이크(탐) : 스테이크가 탔어요. 좀 더 약한 불로 익혀주세요.",
+        "스테이크(한쪽만 익음) : 스테이크가 한쪽만 익었어요. 조금 더 자주 뒤집으며 익혀주세요.",
+        "스테이크(안이 안익음) : 스테이크의 안쪽이 덜 익었어요. 조금 더 오래 익혀주세요."
+        },
+        {
+        "소금(부족) : 너무 싱거워요. 소금을 조금 더 넣어주세요.",
+        "소금(과다) : 너무 짜요. 소금을 조금 줄여주세요.",
+        "후추(부족) : 너무 싱거워요. 소금을 조금 더 넣어주세요.",
+        "후추(과다) : 너무 짜요. 소금을 조금 줄여주세요.",
+        ""
+        }
+    }
+    };
+
+    /// <summary>
+    /// 평가 피드백 메시지 true, false 배열
+    /// </summary>
+    bool[,] rate = new bool[3, 5] {
+        { false, false, false, false, false },
+        { false, false, false, false, false },
+        { false, false, false, false, false }
+    };
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,4 +113,216 @@ public class ResultUIManager : MonoBehaviour
     {
         
     }
+
+    public void Evaluate()
+    {
+        for(int i =0; i < 4; i++)
+        {
+            SetStar(i);
+            SetTexts(i);
+        }    
+    }
+
+    /// <summary>
+    /// 피드백 메시지 적용 함수
+    /// </summary>
+    /// <param name="i"></param>
+    private void SetTexts(int i)
+    {
+        throw new NotImplementedException();
+    }
+
+    /// <summary>
+    /// 평가 점수 반환 함수
+    /// idx : 평가 종류 (0 : 전체, 1 : 위생, 2 : 과정, 3 : 결과)
+    /// </summary>
+    /// <param name="idx"></param>
+    /// <returns></returns>
+    public float EvaluatingFood(int idx)
+    {
+        switch(idx)
+        {
+            case 0: return (EvaluatingClean() + EvaluatingProcess() + EvaluatingResult()) / 3.0f;
+            case 1: return EvaluatingClean();
+            case 2: return EvaluatingProcess();
+            case 3: return EvaluatingResult();
+            default:
+                return 0.0f;
+        }
+    }
+
+    public float EvaluatingClean()
+    {
+        //Common
+        float handRate = EvaluatingWashHand();
+        if (id == 0) //Salad
+        {
+
+        }
+        else if(id == 1) //SandWich
+        {
+
+        }
+        else //Steak
+        {
+
+        }
+        return 0;
+    }
+    public float EvaluatingProcess()
+    {
+        //Common
+
+        if (id == 0) //Salad
+        {
+            return EvaluatingShake();
+        }
+        else if (id == 1) //SandWich
+        {
+
+        }
+        else //Steak
+        {
+
+        }
+        return 0;
+    }
+    public float EvaluatingResult()
+    {
+        //Common
+
+        if (id == 1) //SandWich
+        {
+            return EvaluatingMayonnaise();
+        }
+        else //Salad , Steak
+        {
+            return (EvaluatingSalt() + EvaluatingPepper() + EvaluatingPassly()) / 3.0f;
+        }
+    }
+    public void SetStar(int idx)
+    {
+        starImage[idx].fillAmount = EvaluatingFood(idx) / 5.0f;
+    }
+
+
+
+//위생 평가
+
+
+    /// <summary>
+    /// 손 씻었는지 여부 평가
+    /// </summary>
+    /// <returns>5점 만점 float</returns>
+    public float EvaluatingWashHand()
+    {
+        if (CheckPotatoSaladCook.instance.isWashedHand)
+        {
+            rate[0, 0] = true;
+            return 0.0f;
+        }
+        else
+        {
+            rate[0, 0] = false;
+            return 5.0f;
+        }
+    }
+
+//과정 평가
+
+    /// <summary>
+    /// 샐러드 섞은 시간 평가
+    /// </summary>
+    /// <returns>5점 만점 float</returns>
+    public float EvaluatingShake()
+    {
+        if (CheckPotatoSaladCook.instance.mixingTime < 10.0f)
+        {
+            rate[1, 3] = true;
+            return CheckPotatoSaladCook.instance.mixingTime / 2f;
+        }
+        else
+        {
+            rate[1, 3] = false;
+            return 5.0f;
+        }
+    }
+
+
+    //작품 평가
+
+    /// <summary>
+    /// 소금양 평가
+    /// </summary>
+    /// <returns>5점 만점 float</returns>
+    public float EvaluatingSalt()
+    {
+        int saltAmount = CheckPotatoSaladCook.instance.saltShakingCount - 2;
+        if (saltAmount < 0)
+        {
+            rate[2,0] = true;
+        }
+        else if(saltAmount > 0)
+        {
+            rate[2, 1] = true;
+        }
+
+        return 5.0f - Mathf.Clamp(Mathf.Abs(saltAmount), 0f, 5f);
+    }
+    /// <summary>
+    /// 후추양 평가
+    /// </summary>
+    /// <returns>5점 만점 float</returns>
+    public float EvaluatingPepper()
+    {
+
+        int pepperAmount = CheckPotatoSaladCook.instance.pepperShakingCount - 1;
+        if (pepperAmount < 0)
+        {
+            rate[2, 2] = true;
+        }
+        else if (pepperAmount > 0)
+        {
+            rate[2, 3] = true;
+        }
+
+        return 5.0f - Mathf.Clamp(Mathf.Abs(pepperAmount)*1.5f, 0f, 5f);
+    }
+    /// <summary>
+    /// 파슬리 평가
+    /// </summary>
+    /// <returns>5점 만점 float</returns>
+    public float EvaluatingPassly()
+    {
+        if (CheckPotatoSaladCook.instance.parsleyShakingCount < 1)
+        {
+            rate[2, 4] = true;
+            return 0.0f;
+        }
+        else
+        {
+            rate[2, 4] = false;
+            return 5.0f;
+        }
+    }
+    /// <summary>
+    /// 마요네즈양 평가
+    /// </summary>
+    /// <returns>5점 만점 float</returns>
+    public float EvaluatingMayonnaise()
+    {
+
+        int pepperAmount = CheckPotatoSaladCook.instance.pepperShakingCount - 1;
+        if (pepperAmount < 0)
+        {
+            rate[2, 2] = true;
+        }
+        else if (pepperAmount > 0)
+        {
+            rate[2, 3] = true;
+        }
+
+        return 5.0f - Mathf.Clamp(Mathf.Abs(pepperAmount) * 1.5f, 0f, 5f);
+    }
+
 }
