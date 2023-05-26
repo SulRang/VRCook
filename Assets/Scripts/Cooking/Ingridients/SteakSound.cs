@@ -9,6 +9,7 @@ public class SteakSound : MonoBehaviour
     public AudioSource[] audioSources;
 
     public bool isOnPan = false;
+    public bool isLostedOnPan = false;
     public ThermalObject panThermal;
     public ThermalObject outerSteakThermal;
 
@@ -27,9 +28,17 @@ public class SteakSound : MonoBehaviour
         if(isOnPan)
         {
             float tempDelta = panThermal.temperature - outerSteakThermal.temperature;
-            float volume = tempDelta / 80;
-            audioSources[0].volume = 0.1f * volume;
-            audioSources[1].volume = 0.1f * volume;
+            float volume = 200 + tempDelta / 200;
+            audioSources[0].volume = 0.2f * volume;
+            audioSources[1].volume = 0.2f * volume;
+        }
+    }
+
+    IEnumerator PlusSound(float time)
+    {
+        for(float i = 0.1f; i > 0; i-=0.003f)
+        {
+            yield return new WaitForEndOfFrame();
         }
     }
 
@@ -49,6 +58,7 @@ public class SteakSound : MonoBehaviour
         if (other.gameObject.name == "FryPan")
         {
             isOnPan = false;
+            isLostedOnPan = true;
             audioSources[0].Stop();
             audioSources[1].Stop();
         }

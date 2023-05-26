@@ -7921,12 +7921,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialTemperature: 20
   temperature: 20
-  specificHeat: 0.2
+  specificHeat: 0.5
   volume: 20
   thermalConductivity: 1
   limitTemperature: 400
   temperatureLockInInitial: 0
-  isTemperatureChangeEnabled: 0
+  isTemperatureChangeEnabled: 1
 --- !u!54 &589912007
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8227,7 +8227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8ca95efad408574b836c41cd184c403, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialTemperature: 200
+  initialTemperature: 600
   temperature: 20
   specificHeat: 1
   volume: 0.001
@@ -12569,7 +12569,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8ca95efad408574b836c41cd184c403, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialTemperature: 200
+  initialTemperature: 600
   temperature: 20
   specificHeat: 1
   volume: 0.001
@@ -13379,7 +13379,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1671620690}
-  - component: {fileID: 1671620689}
+  - component: {fileID: 1671620691}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -13387,26 +13387,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1671620689
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1671620688}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2dcb59ecf1fc024b82afbf0d3ceb582, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isWashedHand: 0
-  isWashedPotato: 0
-  isWashedOnion: 0
-  maxPotatoTemp: 0
-  mixingTime: 0
-  saltShakingCount: 0
-  pepperShakingCount: 0
-  parsleyShakingCount: 0
 --- !u!4 &1671620690
 Transform:
   m_ObjectHideFlags: 0
@@ -13422,6 +13402,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1671620691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671620688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1260c6ba9cdd273408e2f8f182653cff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isWashedHand: 0
+  pepperShakingCount: 0
+  saltShakingCount: 0
+  maxSteakInsideTemperature: 0
+  maxSteakOutsideTemperature: 0
 --- !u!1001 &1676961290
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16092,7 +16089,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8ca95efad408574b836c41cd184c403, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialTemperature: 200
+  initialTemperature: 600
   temperature: 20
   specificHeat: 1
   volume: 0.001
@@ -16309,6 +16306,18 @@ PrefabInstance:
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 1161099442}
+    - target: {fileID: 5439755170721653508, guid: 4758987109c94d644a90bbabb18d7e74, type: 3}
+      propertyPath: rotationThresholdMax
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5439755170721653508, guid: 4758987109c94d644a90bbabb18d7e74, type: 3}
+      propertyPath: rotationThresholdMin
+      value: -0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5439755170721653508, guid: 4758987109c94d644a90bbabb18d7e74, type: 3}
+      propertyPath: rotationVelocityThreshold
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16662,6 +16671,18 @@ PrefabInstance:
       propertyPath: moveWithCustomTransform
       value: 
       objectReference: {fileID: 350805999}
+    - target: {fileID: 4690985553786081785, guid: aa85d23befe5aa849a66cb7ca86b79e4, type: 3}
+      propertyPath: rotationThresholdMax
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690985553786081785, guid: aa85d23befe5aa849a66cb7ca86b79e4, type: 3}
+      propertyPath: rotationThresholdMin
+      value: -0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4690985553786081785, guid: aa85d23befe5aa849a66cb7ca86b79e4, type: 3}
+      propertyPath: rotationVelocityThreshold
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4843989121873283970, guid: aa85d23befe5aa849a66cb7ca86b79e4, type: 3}
       propertyPath: m_Name
       value: Pepper
