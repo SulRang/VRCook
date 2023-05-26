@@ -34,6 +34,23 @@ public class MaterialChangeObject : MonoBehaviour
         }
     }
 
+    public Material GetMostRelevantMat()
+    {
+        Material tmp = temperatureMaterials[0].material;
+        float minDiff = 10000.0f;
+        for (int i = 0; i < temperatureMaterials.Count; i++)
+        {
+            float diff = Mathf.Min(Mathf.Abs(thermalObject.temperature - temperatureMaterials[i].minTemperature), 
+                                   Mathf.Abs(thermalObject.temperature - temperatureMaterials[i].maxTemperature));
+            if(diff < minDiff)
+            {
+                tmp = temperatureMaterials[i].material;
+            }
+
+        }
+        return tmp;
+    }
+
     private void Update()
     {
         // Calculate temperature based on your simulation
