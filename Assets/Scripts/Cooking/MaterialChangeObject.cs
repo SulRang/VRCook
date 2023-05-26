@@ -25,13 +25,14 @@ public class MaterialChangeObject : MonoBehaviour
         thermalObject = GetComponent<ThermalObject>();
         meshRenderer = GetComponent<MeshRenderer>();
 
-        List<Material> materials = new List<Material>();
-        foreach (TemperatureMaterial mat in temperatureMaterials)
+
+        Material[] materials = transform.GetComponent<MeshRenderer>().materials;
+        for (int i = 0; i < temperatureMaterials.Count; i++)
         {
-            Color color = mat.material.color;
+            Color color = materials[i].color;
             color.a = 0.0f;
-            mat.material.color = color;
-            materials.Add(mat.material);
+            materials[i].color = color;
+            temperatureMaterials[i].material = materials[i];
         }
         //meshRenderer.SetMaterials(materials);
         //meshRenderer.
