@@ -45,6 +45,7 @@ public class MaterialChangeObject : MonoBehaviour
             if(diff < minDiff)
             {
                 tmp = temperatureMaterials[i].material;
+                minDiff = diff;
             }
 
         }

@@ -22,6 +22,7 @@ public class GasBurnerSwitch : MonoBehaviour
     }
     private void Update()
     {
+        print(transform.rotation);
         switchInput = (transform.rotation.eulerAngles.z - 270) / 360;
         if (transform.rotation.eulerAngles.z > 360)
         {
@@ -32,11 +33,11 @@ public class GasBurnerSwitch : MonoBehaviour
             transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, transform.rotation.eulerAngles.z + 360f));
         }
 
-        if (switchInput > 0.05f && switchInput < 0.95f)
+        if (switchInput > 0.03f && switchInput < 0.97f)
         {
             fireOn = true;
         }
-        else if(switchInput < 0.05f && switchInput < 0.95f)
+        else if(switchInput < 0.03f && switchInput < 0.97f)
         {
             fireOn = false;
         }
