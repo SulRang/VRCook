@@ -76,6 +76,7 @@ public class WaterTap : MonoBehaviour
                     }
                     break;
                 case "SteakScene":
+                    CheckSteakCook.instance.isWashedHand = true;
                     break;
             }
         }
