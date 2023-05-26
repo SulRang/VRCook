@@ -8,8 +8,6 @@ public class TemperatureMaterial
     public Material material;
     public float minTemperature;
     public float maxTemperature;
-
-
 }
 
 public class MaterialChangeObject : MonoBehaviour
@@ -33,8 +31,6 @@ public class MaterialChangeObject : MonoBehaviour
             mat.material.color = color;
             materials.Add(mat.material);
         }
-        //meshRenderer.SetMaterials(materials);
-        //meshRenderer.
     }
 
     private void Update()
