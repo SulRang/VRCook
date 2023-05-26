@@ -171,13 +171,16 @@ public class ObjectCutting
 
 
 
+        List<Material> matList = new List<Material>();
+        matList.AddRange(victim.GetComponent<MeshRenderer>().materials);
+        matList.Add(capMaterial);
+        Material[] mats = matList.ToArray();
 
-        Material[] mats = new Material[] { victim.GetComponent<MeshRenderer>().material, capMaterial };
 
         GameObject leftSideObj = victim;
 
         GameObject rightSideObj = new GameObject("rightSide", typeof(MeshFilter), typeof(MeshRenderer));
-        rightSideObj.transform.position = victim_transform.position;
+        rightSideObj.transform.position = victim_transform.position ;
         rightSideObj.transform.rotation = victim_transform.rotation;
         rightSideObj.GetComponent<MeshFilter>().mesh = right_HalfMesh;
 
@@ -194,7 +197,7 @@ public class ObjectCutting
         rightSideObj.AddComponent<BoxCollider>();
         rightSideObj.AddComponent<Rigidbody>();
         rightSideObj.AddComponent<BasicIndegridients>();
-        leftSideObj.AddComponent<BasicIndegridients>();
+        rightSideObj.GetComponent<BasicIndegridients>().temperature = victim.GetComponent<BasicIndegridients>().temperature;
 
         return new GameObject[] { leftSideObj, rightSideObj };
 

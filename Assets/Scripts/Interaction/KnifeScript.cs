@@ -19,6 +19,7 @@ public class KnifeScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (transform.position.y > 2f)
+            transform.GetComponent<BoxCollider>().isTrigger = false;
     }
 }
