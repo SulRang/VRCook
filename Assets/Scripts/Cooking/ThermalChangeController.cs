@@ -7,9 +7,9 @@ public class ThermalChangeController : MonoBehaviour
     public static ThermalChangeController instance;
     public float timeScale;
     [SerializeField]
-    private float realTimeScale = 1.0f;
+    private float realTimeScale = 5.0f;
     [SerializeField]
-    private float timeScaleRatio = 0.05f;
+    private float timeScaleRatio = 0.01f;
 
     private void Awake()
     {
