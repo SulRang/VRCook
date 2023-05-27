@@ -2,16 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProcessManager : MonoBehaviour
+public class BreadCutChecking : MonoBehaviour
 {
-    private static ProcessManager _instance;
-    public static ProcessManager Instance
+    [SerializeField]
+    GameObject[] breadCols;
+
+    private static BreadCutChecking _instance;
+    public static BreadCutChecking Instance
     {
         get
         {
             if (!_instance)
             {
-                _instance = FindObjectOfType(typeof(ProcessManager)) as ProcessManager;
+                _instance = FindObjectOfType(typeof(BreadCutChecking)) as BreadCutChecking;
 
                 if (_instance == null)
                     Debug.Log("no Singleton obj");
@@ -32,18 +35,26 @@ public class ProcessManager : MonoBehaviour
         }
     }
 
-    public int[] idx = new int[] { 0, 0, 0 };
     // Start is called before the first frame update
     void Start()
     {
-        for(int i = 0; i < idx.Length; i++)
-        {
-            idx[i] = 0;
-        }
+        
     }
+
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public bool GetCutting()
+    {
+        bool isCutAll = true;
+        foreach(GameObject gameObj in breadCols)
+        {
+            if(gameObj.activeSelf)
+                isCutAll = false;
+        }
+        return isCutAll;
     }
 }
