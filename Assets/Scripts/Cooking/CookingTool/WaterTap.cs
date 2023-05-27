@@ -70,10 +70,15 @@ public class WaterTap : MonoBehaviour
                     {
                         CheckSandWichCooking.instance.isWashedlettuce = true;
                     }
+                    else if((other.gameObject.name == "Sphere" && other.transform.parent.name == "tomato") || other.gameObject.name == "tomato")
+                    {
+                        CheckSandWichCooking.instance.isWashedTomato = true;
+                    }
                     else
                     {
                         CheckSandWichCooking.instance.isWashedHand = true;
                     }
+                    
                     break;
                 case "SteakScene":
                     CheckSteakCook.instance.isWashedHand = true;
