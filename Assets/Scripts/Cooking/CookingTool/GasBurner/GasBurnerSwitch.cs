@@ -22,7 +22,6 @@ public class GasBurnerSwitch : MonoBehaviour
     }
     private void Update()
     {
-        print(transform.rotation);
         switchInput = (transform.rotation.eulerAngles.z - 270) / 360;
         if (transform.rotation.eulerAngles.z > 360)
         {
