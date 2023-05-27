@@ -22,8 +22,10 @@ public class VideoClips : MonoBehaviour
     [SerializeField]
     VideoClip[] saladProgressVideos;
 
+    [SerializeField]
     VideoClip[] sandwichProgressVideos;
 
+    [SerializeField]
     VideoClip[] steakProgressVideos;
 
     public VideoClip[] GetVideos(int id)

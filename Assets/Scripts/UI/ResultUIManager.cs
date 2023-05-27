@@ -12,6 +12,10 @@ public class ResultUIManager : MonoBehaviour
     [SerializeField]
     Text[] feedbackTexts;
 
+    const int SALT_AMOUNT = 2;
+
+    const int PEPPER_AMOUNT = 1;
+
     //메뉴 id (0 : 샐러드, 1 : 샌드위치, 2: 스테이크)
     [SerializeField]
     int id = 0;
@@ -62,8 +66,8 @@ public class ResultUIManager : MonoBehaviour
         },
         {
         "마요네즈(적음) : 마요네즈가 너무 조금 들어갔어요. 조금만 더 넣어주세요.",
-        "마요네즈(많음) : 마요네즈가 너무 많이 들어갔어요. 조금만 덜 넣어주세요.",
-        "파 씻기 : 요리 재료는 쓰기전에 항상 깨끗하게 씻어주세요",
+        "",
+        "",
         "",
         ""
         }
@@ -105,7 +109,7 @@ public class ResultUIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Evaluate();
     }
 
     // Update is called once per frame
@@ -129,7 +133,17 @@ public class ResultUIManager : MonoBehaviour
     /// <param name="i"></param>
     private void SetTexts(int i)
     {
-        throw new NotImplementedException();
+        if (i == 0)
+            return;
+        string rateStr = "";
+        for(int j = 0; j < 5; j++)
+        {
+            if (rate[i - 1, j])
+            {
+                rateStr = rateStr + '\n' + texts[id, i - 1, j];
+            }
+        }
+        feedbackTexts[i].text = rateStr;
     }
 
     /// <summary>
@@ -155,19 +169,14 @@ public class ResultUIManager : MonoBehaviour
     {
         //Common
         float handRate = EvaluatingWashHand();
-        if (id == 0) //Salad
+        if (id == 2) //steak
         {
-
+            return handRate;
         }
-        else if(id == 1) //SandWich
+        else //Salad, SandWich
         {
-
+            return (handRate + EvaluatingWashIngredients()) / 3.0f;
         }
-        else //Steak
-        {
-
-        }
-        return 0;
     }
     public float EvaluatingProcess()
     {
@@ -197,12 +206,13 @@ public class ResultUIManager : MonoBehaviour
         }
         else //Salad , Steak
         {
-            return (EvaluatingSalt() + EvaluatingPepper() + EvaluatingPassly()) / 3.0f;
+            return (EvaluatingSalt() + EvaluatingPepper())/2.0f;// + EvaluatingPassly()) / 3.0f;
         }
     }
     public void SetStar(int idx)
     {
-        starImage[idx].fillAmount = EvaluatingFood(idx) / 5.0f;
+        Debug.Log(Mathf.Ceil(EvaluatingFood(idx) * 2.0f));
+        starImage[idx].fillAmount = Mathf.Ceil(EvaluatingFood(idx)*2.0f) / 10.0f;
     }
 
 
@@ -216,15 +226,112 @@ public class ResultUIManager : MonoBehaviour
     /// <returns>5점 만점 float</returns>
     public float EvaluatingWashHand()
     {
-        if (CheckPotatoSaladCook.instance.isWashedHand)
+        switch(id)
         {
-            rate[0, 0] = true;
-            return 0.0f;
+            case 0:
+                if (!CheckPotatoSaladCook.instance.isWashedHand)
+                {
+                    rate[0, 0] = true;
+                    return 0.0f;
+                }
+                else
+                {
+                    rate[0, 0] = false;
+                    return 5.0f;
+                }
+            case 1:
+                if (!CheckSandWichCooking.instance.isWashedHand)
+                {
+                    rate[0, 0] = true;
+                    return 0.0f;
+                }
+                else
+                {
+                    rate[0, 0] = false;
+                    return 5.0f;
+                }
+            case 2:
+                if (!CheckSteakCook.instance.isWashedHand)
+                {
+                    rate[0, 0] = true;
+                    return 0.0f;
+                }
+                else
+                {
+                    rate[0, 0] = false;
+                    return 5.0f;
+                }
+            default:
+                return 0.0f;
+
         }
-        else
+    }
+    public float EvaluatingWashIngredients()
+    {
+        switch (id)
         {
-            rate[0, 0] = false;
-            return 5.0f;
+            case 0:
+                if (!CheckPotatoSaladCook.instance.isWashedPotato)
+                {
+                    rate[0, 1] = true;
+                    if (!CheckPotatoSaladCook.instance.isWashedOnion)
+                    {
+                        rate[0, 2] = true;
+                        return 0.0f;
+                    }
+                    else
+                    {
+                        return 5.0f;
+                    }
+                }
+                else
+                {
+                    if (!CheckPotatoSaladCook.instance.isWashedOnion)
+                    {
+                        rate[0, 2] = true;
+                        return 5.0f;
+                    }
+                    else
+                        return 10.0f;
+                }
+            case 1:
+                if (!CheckSandWichCooking.instance.isWashedlettuce)
+                {
+                    rate[0, 1] = true;
+                    if (!CheckPotatoSaladCook.instance.isWashedOnion)
+                    {
+                        rate[0, 2] = true;
+                        return 0.0f;
+                    }
+                    else
+                    {
+                        return 5.0f;
+                    }
+                }
+                else
+                {
+                    if (!CheckPotatoSaladCook.instance.isWashedOnion)
+                    {
+                        rate[0, 2] = true;
+                        return 5.0f;
+                    }
+                    else
+                        return 10.0f;
+                }
+            case 2:
+                if (CheckSteakCook.instance.isWashedHand)
+                {
+                    rate[0, 0] = true;
+                    return 0.0f;
+                }
+                else
+                {
+                    rate[0, 0] = false;
+                    return 5.0f;
+                }
+            default:
+                return 0.0f;
+
         }
     }
 
@@ -257,17 +364,33 @@ public class ResultUIManager : MonoBehaviour
     /// <returns>5점 만점 float</returns>
     public float EvaluatingSalt()
     {
-        int saltAmount = CheckPotatoSaladCook.instance.saltShakingCount - 2;
+        int saltAmount;
+        switch (id)
+        {
+            case 0:
+                saltAmount = CheckPotatoSaladCook.instance.saltShakingCount - SALT_AMOUNT;
+                break;
+            case 1:
+                saltAmount = CheckSandWichCooking.instance.saltShakingCount - SALT_AMOUNT;
+                break;
+            case 2:
+                saltAmount = CheckSteakCook.instance.saltShakingCount - SALT_AMOUNT;
+                break;
+            default:
+                return 0.0f;
+
+        }
+
         if (saltAmount < 0)
         {
-            rate[2,0] = true;
+            rate[2, 0] = true;
         }
-        else if(saltAmount > 0)
+        else if (saltAmount > 0)
         {
             rate[2, 1] = true;
         }
 
-        return 5.0f - Mathf.Clamp(Mathf.Abs(saltAmount), 0f, 5f);
+        return 5.0f - Mathf.Clamp(Mathf.Abs(saltAmount), 0, 5);
     }
     /// <summary>
     /// 후추양 평가
@@ -276,7 +399,22 @@ public class ResultUIManager : MonoBehaviour
     public float EvaluatingPepper()
     {
 
-        int pepperAmount = CheckPotatoSaladCook.instance.pepperShakingCount - 1;
+        int pepperAmount;
+        switch (id)
+        {
+            case 0:
+                pepperAmount = CheckPotatoSaladCook.instance.pepperShakingCount - PEPPER_AMOUNT;
+                break;
+            case 1:
+                pepperAmount = CheckSandWichCooking.instance.pepperShakingCount - PEPPER_AMOUNT;
+                break;
+            case 2:
+                pepperAmount = CheckSteakCook.instance.pepperShakingCount - PEPPER_AMOUNT;
+                break;
+            default:
+                return 0.0f;
+
+        }
         if (pepperAmount < 0)
         {
             rate[2, 2] = true;
@@ -312,17 +450,17 @@ public class ResultUIManager : MonoBehaviour
     public float EvaluatingMayonnaise()
     {
 
-        int pepperAmount = CheckPotatoSaladCook.instance.pepperShakingCount - 1;
-        if (pepperAmount < 0)
+        float mayoAmount = CheckSandWichCooking.instance.mayoSpreadAmount;
+        if (mayoAmount > 0.1f)
         {
-            rate[2, 2] = true;
+            return 5.0f;
         }
-        else if (pepperAmount > 0)
+        else
         {
-            rate[2, 3] = true;
+            rate[2, 0] = true;
+            return 0.0f;
         }
 
-        return 5.0f - Mathf.Clamp(Mathf.Abs(pepperAmount) * 1.5f, 0f, 5f);
     }
 
 }
