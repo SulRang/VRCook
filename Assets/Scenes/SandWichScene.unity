@@ -14124,6 +14124,7 @@ MonoBehaviour:
   isWashedlettuce: 0
   isWashedTomato: 0
   pepperShakingCount: 0
+  hamMaxTemperature: 0
   saltShakingCount: 0
   mayoSpreadAmount: 0
   isSandWichQueueRight: 0
