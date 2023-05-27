@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class UIMove : MonoBehaviour
 {
     float smoothTime = 0.2f;
-    float cameraDistance = 1.0f;
     Transform target;
     Transform tracking;
     Transform targetCamera;

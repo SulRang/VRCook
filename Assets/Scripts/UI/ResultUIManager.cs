@@ -20,8 +20,6 @@ public class ResultUIManager : MonoBehaviour
     [SerializeField]
     int id = 0;
 
-    float resultRate = 0f;
-
     /// <summary>
     /// 평가 피드백 메시지 배열
     /// </summary>
@@ -65,11 +63,11 @@ public class ResultUIManager : MonoBehaviour
         ""
         },
         {
-        "마요네즈(적음) : 마요네즈가 너무 조금 들어갔어요. 조금만 더 넣어주세요.",
-        "",
-        "",
-        "",
-        ""
+        "소금(부족) : 너무 싱거워요. 소금을 조금 더 넣어주세요.",
+        "소금(과다) : 너무 짜요. 소금을 조금 줄여주세요.",
+        "후추(부족) : 너무 싱거워요. 소금을 조금 더 넣어주세요.",
+        "후추(과다) : 너무 짜요. 소금을 조금 줄여주세요.",
+        "마요네즈(적음) : 마요네즈가 너무 조금 들어갔어요. 조금만 더 넣어주세요."
         }
     },
     {//스테이크
@@ -92,7 +90,7 @@ public class ResultUIManager : MonoBehaviour
         "소금(과다) : 너무 짜요. 소금을 조금 줄여주세요.",
         "후추(부족) : 너무 싱거워요. 소금을 조금 더 넣어주세요.",
         "후추(과다) : 너무 짜요. 소금을 조금 줄여주세요.",
-        ""
+        "플레이팅 : 바질을 이용하여 플레이팅을 해 마무리 해주세요."
         }
     }
     };
@@ -184,7 +182,7 @@ public class ResultUIManager : MonoBehaviour
 
         if (id == 0) //Salad
         {
-            return EvaluatingShake();
+            return EvaluatingPotato() + EvaluatingShake();
         }
         else if (id == 1) //SandWich
         {
@@ -202,7 +200,7 @@ public class ResultUIManager : MonoBehaviour
 
         if (id == 1) //SandWich
         {
-            return EvaluatingMayonnaise();
+            return (EvaluatingSalt() + EvaluatingPepper() + EvaluatingMayonnaise()) /3.0f;
         }
         else //Salad , Steak
         {
@@ -298,7 +296,7 @@ public class ResultUIManager : MonoBehaviour
                 if (!CheckSandWichCooking.instance.isWashedlettuce)
                 {
                     rate[0, 1] = true;
-                    if (!CheckPotatoSaladCook.instance.isWashedOnion)
+                    if (!CheckSandWichCooking.instance.isWashedTomato)
                     {
                         rate[0, 2] = true;
                         return 0.0f;
@@ -310,7 +308,7 @@ public class ResultUIManager : MonoBehaviour
                 }
                 else
                 {
-                    if (!CheckPotatoSaladCook.instance.isWashedOnion)
+                    if (!CheckSandWichCooking.instance.isWashedTomato)
                     {
                         rate[0, 2] = true;
                         return 5.0f;
@@ -336,6 +334,31 @@ public class ResultUIManager : MonoBehaviour
     }
 
 //과정 평가
+
+    /// <summary>
+    /// 감자 삶은 온도 평가
+    /// </summary>
+    /// <returns></returns>
+    public float EvaluatingPotato()
+    {
+        if (CheckPotatoSaladCook.instance.maxPotatoTemp < 70.0f)
+        {
+            rate[1, 1] = true;
+            return (CheckPotatoSaladCook.instance.maxPotatoTemp - 40) < 0 ? 0f : 2.5f;
+        }
+        else if (CheckPotatoSaladCook.instance.maxPotatoTemp > 90.0f)
+        {
+            rate[1, 2] = true;
+            return (CheckPotatoSaladCook.instance.maxPotatoTemp - 100) > 0 ? 0f : 2.5f;
+        }
+        else
+        {
+            rate[1, 1] = false;
+            rate[1, 2] = false;
+            return 5.0f;
+        }
+        
+    }
 
     /// <summary>
     /// 샐러드 섞은 시간 평가
@@ -457,7 +480,7 @@ public class ResultUIManager : MonoBehaviour
         }
         else
         {
-            rate[2, 0] = true;
+            rate[2, 4] = true;
             return 0.0f;
         }
 

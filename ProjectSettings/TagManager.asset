@@ -8,6 +8,7 @@ TagManager:
   - Knife
   - Hand
   - Steak
+  - BreadCol
   layers:
   - Default
   - TransparentFX
