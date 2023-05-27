@@ -10,14 +10,14 @@ public class TongsGrab : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.name == "steak")
+        if (other.tag == "Steak")
         {
             target = other.transform;
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.name == "steak")
+        if (other.tag == "Steak")
         {
             target = null;
         }
@@ -43,11 +43,10 @@ public class TongsGrab : MonoBehaviour
         if (target != null)
         {
             isActive = true;
-            target.GetComponent<Rigidbody>().isKinematic = true; 
-
-            transform.parent.GetChild(0).Rotate(new Vector3(-3, 0, 0));
-            transform.parent.GetChild(1).Rotate(new Vector3(-3, 0, 0));
+            target.GetComponent<Rigidbody>().isKinematic = true;
         }
+        transform.parent.GetChild(0).Rotate(new Vector3(-3, 0, 0));
+        transform.parent.GetChild(1).Rotate(new Vector3(-3, 0, 0));
     }
     public void UnGrabTongs()
     {
@@ -55,9 +54,9 @@ public class TongsGrab : MonoBehaviour
         {
             isActive = false;
             target.GetComponent<Rigidbody>().isKinematic = false;
-            transform.parent.GetChild(0).Rotate(new Vector3(3, 0, 0));
-            transform.parent.GetChild(1).Rotate(new Vector3(3, 0, 0));
         }
+        transform.parent.GetChild(0).Rotate(new Vector3(3, 0, 0));
+        transform.parent.GetChild(1).Rotate(new Vector3(3, 0, 0));
     }
 
 
