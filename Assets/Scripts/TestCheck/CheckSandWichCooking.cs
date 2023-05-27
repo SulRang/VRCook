@@ -26,6 +26,8 @@ public class CheckSandWichCooking : MonoBehaviour
     public bool isWashedTomato = false;
     [Header("후추 뿌려진 횟수 (1번당 1g)")]
     public int pepperShakingCount = 0;
+    [Header("햄 최대 온도")]
+    public float hamMaxTemperature = 0.0f;
     [Header("소금 뿌려진 횟수 (1번당 1g)")]
     public int saltShakingCount = 0;
     [Header("마요네즈가 뿌려진 %")]
