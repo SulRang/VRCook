@@ -169,7 +169,7 @@ public class ResultUIManager : MonoBehaviour
         float handRate = EvaluatingWashHand();
         if (id == 2) //steak
         {
-            return handRate;
+            return (handRate + EvaluatingWashIngredients()) / 2.0f;
         }
         else //Salad, SandWich
         {
@@ -182,15 +182,15 @@ public class ResultUIManager : MonoBehaviour
 
         if (id == 0) //Salad
         {
-            return EvaluatingPotato() + EvaluatingShake();
+            return (EvaluatingPotato() + EvaluatingShake()) / 2.0f;
         }
         else if (id == 1) //SandWich
         {
-
+            return (Evaluatingham() + EvaluatingBread()) / 2.0f;
         }
         else //Steak
         {
-
+            return (EvaluatingStakeInside() + EvaluatingStakeOutside() + EvaluatingStakeFlip()) / 3.0f;
         }
         return 0;
     }
@@ -317,14 +317,14 @@ public class ResultUIManager : MonoBehaviour
                         return 10.0f;
                 }
             case 2:
-                if (CheckSteakCook.instance.isWashedHand)
+                if (CheckSteakCook.instance.isWashedGanish)
                 {
-                    rate[0, 0] = true;
+                    rate[0, 1] = true;
                     return 0.0f;
                 }
                 else
                 {
-                    rate[0, 0] = false;
+                    rate[0, 1] = false;
                     return 5.0f;
                 }
             default:
@@ -379,6 +379,106 @@ public class ResultUIManager : MonoBehaviour
     }
 
 
+    /// <summary>
+    /// 샌드위치 빵 온도 평가
+    /// </summary>
+    /// <returns>5점 만점 float</returns>
+    public float EvaluatingBread()
+    {
+        if (BreadCutChecking.Instance.GetCutting())
+        {
+            return 5.0f;
+        }
+        else
+        {
+            rate[1, 0] = true;
+            return 0f;
+        }
+    }
+
+
+    /// <summary>
+    /// 샌드위치 햄 온도 평가
+    /// </summary>
+    /// <returns>5점 만점 float</returns>
+    public float Evaluatingham()
+    {
+        if (CheckSandWichCooking.instance.hamMaxTemperature < 40.0f)
+        {
+            rate[1, 1] = true;
+            return 0f;
+        }
+        else if (CheckSandWichCooking.instance.hamMaxTemperature < 80.0f)
+        {
+            rate[1, 1] = true;
+            return 2.5f;
+        }
+        else if (CheckSandWichCooking.instance.hamMaxTemperature > 180.0f)
+        {
+            rate[1, 2] = true;
+            return 0f;
+        }
+        else if (CheckSandWichCooking.instance.hamMaxTemperature > 150.0f)
+        {
+            rate[1, 2] = true;
+            return 2.5f;
+        }
+        else
+        {
+            return 5.0f;
+        }
+    }
+
+    public float EvaluatingStakeInside()
+    {
+        if (CheckSteakCook.instance.maxSteakInsideTemperature < 50.0f)
+        {
+            rate[1, 4] = true;
+            return CheckPotatoSaladCook.instance.mixingTime / 2f;
+        }
+        else
+        {
+            rate[1, 4] = false;
+            return 5.0f;
+        }
+    }
+    public float EvaluatingStakeOutside()
+    {
+        if (CheckSteakCook.instance.maxSteakOutsideTemperature < 80.0f)
+        {
+            rate[1, 0] = true;
+            return 2.5f;
+        }
+        else if (CheckSteakCook.instance.maxSteakOutsideTemperature > 180.0f)
+        {
+            rate[1, 2] = true;
+            return 0.0f;
+        }
+        else if (CheckSteakCook.instance.maxSteakOutsideTemperature > 140.0f)
+        {
+            rate[1, 1] = true;
+            return 2.5f;
+        }
+        else
+        {
+            return 5.0f;
+        }
+    }
+    public float EvaluatingStakeFlip()
+    {
+        if (CheckSteakCook.instance.steakFlippingCount < 3)
+        {
+            rate[1, 3] = true;
+            return CheckSteakCook.instance.steakFlippingCount;
+        }
+        else
+        {
+            rate[1, 3] = false;
+            return 5.0f;
+        }
+    }
+
+
     //작품 평가
 
     /// <summary>
@@ -397,8 +497,21 @@ public class ResultUIManager : MonoBehaviour
                 saltAmount = CheckSandWichCooking.instance.saltShakingCount - SALT_AMOUNT;
                 break;
             case 2:
-                saltAmount = CheckSteakCook.instance.saltShakingCount - SALT_AMOUNT;
-                break;
+                saltAmount = CheckSteakCook.instance.saltShakingCount;
+                if(saltAmount < 5)
+                {
+                    rate[2, 0] = true;
+                    return saltAmount;
+                }
+                else if (saltAmount > 10)
+                {
+                    rate[2, 1] = true;
+                    return 5.0f - Mathf.Clamp(saltAmount - 10, 0, 5);
+                }
+                else
+                {
+                    return 5.0f;
+                }
             default:
                 return 0.0f;
 
@@ -432,8 +545,21 @@ public class ResultUIManager : MonoBehaviour
                 pepperAmount = CheckSandWichCooking.instance.pepperShakingCount - PEPPER_AMOUNT;
                 break;
             case 2:
-                pepperAmount = CheckSteakCook.instance.pepperShakingCount - PEPPER_AMOUNT;
-                break;
+                pepperAmount = CheckSteakCook.instance.pepperShakingCount;
+                if (pepperAmount < 4)
+                {
+                    rate[2, 2] = true;
+                    return pepperAmount+1;
+                }
+                else if (pepperAmount > 8)
+                {
+                    rate[2, 3] = true;
+                    return 5.0f - Mathf.Clamp(pepperAmount - 8, 0, 5);
+                }
+                else
+                {
+                    return 5.0f;
+                }
             default:
                 return 0.0f;
 
