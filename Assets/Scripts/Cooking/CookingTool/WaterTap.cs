@@ -63,7 +63,7 @@ public class WaterTap : MonoBehaviour
                     {
                         CheckPotatoSaladCook.instance.isWashedHand = true;
                     }
-                break;
+                    break;
 
                 case "SandWichScene":
                     if(other.gameObject.name == "lettuce")
@@ -81,7 +81,14 @@ public class WaterTap : MonoBehaviour
                     
                     break;
                 case "SteakScene":
-                    CheckSteakCook.instance.isWashedHand = true;
+                    if(other.gameObject.name == "rucola")
+                    {
+                        CheckSteakCook.instance.isWashedGanish = true;
+                    }
+                    else
+                    {
+                        CheckSteakCook.instance.isWashedHand = true;
+                    }
                     break;
             }
         }

@@ -51,6 +51,10 @@ public class ShakingCheck : MonoBehaviour
                     {
                         CheckSandWichCooking.instance.pepperShakingCount++;
                     }
+                    else if (transform.parent.gameObject.name == "Salt")
+                    {
+                        CheckSandWichCooking.instance.saltShakingCount++;
+                    }
                     break;
                 case "SteakScene":
                     if (transform.parent.gameObject.name == "Pepper")
