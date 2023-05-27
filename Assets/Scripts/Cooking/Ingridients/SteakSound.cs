@@ -26,11 +26,6 @@ public class SteakSound : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(isLostedOnPan)
-        {
-            StartCoroutine(PlusSound(2.0f));
-            isLostedOnPan = !isLostedOnPan;
-        }
         if(isOnPan)
         {
             float tempDelta = panThermal.temperature - outerSteakThermal.temperature;
@@ -53,6 +48,12 @@ public class SteakSound : MonoBehaviour
     {
         if (other.gameObject.name == "FryPan" && other.transform.GetComponent<ThermalObject>().temperature > 30f)
         {
+            if(isLostedOnPan)
+            {
+                StartCoroutine(PlusSound(5.0f));
+                isLostedOnPan = false;
+                CheckSteakCook.instance.steakFlippingCount++;
+            }
             isOnPan = true;
             panThermal = other.GetComponent<ThermalObject>();
             audioSources[0].Play();
@@ -64,6 +65,7 @@ public class SteakSound : MonoBehaviour
     {
         if (other.gameObject.name == "FryPan")
         {
+            
             isOnPan = false;
             isLostedOnPan = true;
             audioSources[0].Stop();
