@@ -33,7 +33,7 @@ public class TimeTextManager : MonoBehaviour
     {
         if (isStart)
         {
-            curTime += Time.deltaTime;
+            curTime += Time.deltaTime * ThermalChangeController.instance.timerScale;
             int secTime = (int)curTime;
             timeText.text = string.Format("{0:D2} : {1:D2}", secTime / 60, secTime % 60);    //Ка : УЪ
             if (curTime > maxTime)

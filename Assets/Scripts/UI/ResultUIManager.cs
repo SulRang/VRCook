@@ -192,7 +192,6 @@ public class ResultUIManager : MonoBehaviour
         {
             return (EvaluatingStakeInside() + EvaluatingStakeOutside() + EvaluatingStakeFlip()) / 3.0f;
         }
-        return 0;
     }
     public float EvaluatingResult()
     {
