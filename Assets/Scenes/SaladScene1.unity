@@ -18317,7 +18317,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 688404340482686318, guid: 5eb64c6fd5cbfc34ba97e9899b8e96a5, type: 3}
       propertyPath: m_TagString
-      value: holdable
+      value: Potato
       objectReference: {fileID: 0}
     - target: {fileID: 2271674831926659430, guid: 5eb64c6fd5cbfc34ba97e9899b8e96a5, type: 3}
       propertyPath: m_CollisionDetection
@@ -18669,7 +18669,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2121856988851599882, guid: fc91c80f3ef0bdb4ba8bbc6c1e1e9349, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.876
+      value: 3.388
       objectReference: {fileID: 0}
     - target: {fileID: 2121856988851599882, guid: fc91c80f3ef0bdb4ba8bbc6c1e1e9349, type: 3}
       propertyPath: m_LocalPosition.y
