@@ -18,7 +18,6 @@ public class MayoSauceBottle : MonoBehaviour
     private void Update()
     {
         Quaternion rotation = transform.rotation;
-        print(rotation);
         if (rotation.x + rotation.z < rotationThresholdMin || rotation.x + rotation.z > rotationThresholdMax )
         {
             // Check if the velocity is faster than the threshold
