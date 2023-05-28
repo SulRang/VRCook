@@ -9,6 +9,9 @@ public class WaterTap : MonoBehaviour
     AudioSource sound;
     private bool isWaterTurnedOn = false;
 
+    [SerializeField]
+    GameObject handle;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,12 +34,12 @@ public class WaterTap : MonoBehaviour
 
     private void Update()
     {
-        if(transform.GetChild(1).transform.localRotation.eulerAngles.z >= 10 && !isWaterTurnedOn)
+        if(handle.transform.localRotation.eulerAngles.z >= 10 && !isWaterTurnedOn)
         {
             TurnOnWater();
             isWaterTurnedOn = true;
         }
-        else if(transform.GetChild(1).transform.localRotation.eulerAngles.z <= 10 && isWaterTurnedOn)
+        else if(handle.transform.localRotation.eulerAngles.z <= 10 && isWaterTurnedOn)
         {
             TurnOffWater();
             isWaterTurnedOn = false;

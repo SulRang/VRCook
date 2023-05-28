@@ -17,6 +17,7 @@ public class MaterialChangeObject : MonoBehaviour
     private ThermalObject thermalObject;
     public float temperature;
 
+    public Material returnMat;
 
     private void Start()
     {
@@ -34,23 +35,6 @@ public class MaterialChangeObject : MonoBehaviour
         }
     }
 
-    public Material GetMostRelevantMat()
-    {
-        Material tmp = temperatureMaterials[0].material;
-        float minDiff = 10000.0f;
-        for (int i = 0; i < temperatureMaterials.Count; i++)
-        {
-            float diff = Mathf.Min(Mathf.Abs(thermalObject.temperature - temperatureMaterials[i].minTemperature), 
-                                   Mathf.Abs(thermalObject.temperature - temperatureMaterials[i].maxTemperature));
-            if(diff < minDiff)
-            {
-                tmp = temperatureMaterials[i].material;
-                minDiff = diff;
-            }
-
-        }
-        return tmp;
-    }
 
     private void Update()
     {
