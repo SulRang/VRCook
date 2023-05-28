@@ -16719,6 +16719,14 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7058390747731189736, guid: a493b7651e6cb2944a3428d7a6981390, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2064962509}
+    - target: {fileID: 7058390747731189736, guid: a493b7651e6cb2944a3428d7a6981390, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
     - target: {fileID: 8390091735828944009, guid: a493b7651e6cb2944a3428d7a6981390, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
@@ -21942,6 +21950,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2365b336965d194e86a2ee0c5d59e01, type: 3}
+--- !u!1 &2064962509 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2710905673462804977, guid: d2af72034d647b3479d45e31fc0d809d, type: 3}
+  m_PrefabInstance: {fileID: 321956970}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2089581668
 PrefabInstance:
   m_ObjectHideFlags: 0

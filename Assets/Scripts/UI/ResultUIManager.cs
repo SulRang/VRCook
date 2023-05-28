@@ -208,7 +208,6 @@ public class ResultUIManager : MonoBehaviour
     }
     public void SetStar(int idx)
     {
-        Debug.Log(Mathf.Ceil(EvaluatingFood(idx) * 2.0f));
         starImage[idx].fillAmount = Mathf.Ceil(EvaluatingFood(idx)*2.0f) / 10.0f;
     }
 
@@ -433,7 +432,7 @@ public class ResultUIManager : MonoBehaviour
         if (CheckSteakCook.instance.maxSteakInsideTemperature < 50.0f)
         {
             rate[1, 4] = true;
-            return CheckPotatoSaladCook.instance.mixingTime / 2f;
+            return 1.0f;
         }
         else
         {
