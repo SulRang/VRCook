@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class MeatCutting : MonoBehaviour
 {
@@ -55,6 +56,9 @@ public class MeatCutting : MonoBehaviour
             isHolding = true;
             ctime = 0.0f;
         }
+
+        if (transform.GetComponent<XRGrabInteractable>() == null && tag != "Steak")
+            transform.gameObject.AddComponent<XRGrabInteractable>();
     }
 
     public void SetHoldIn()

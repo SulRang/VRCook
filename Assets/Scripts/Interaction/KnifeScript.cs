@@ -37,7 +37,8 @@ public class KnifeScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        audioSource = CutAudioList.Instance.audioSource;
+        if (CutAudioList.Instance != null)
+            audioSource = CutAudioList.Instance.audioSource;
     }
     // Update is called once per frame
     void Update()
