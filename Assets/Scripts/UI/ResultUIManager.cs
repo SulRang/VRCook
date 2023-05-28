@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ResultUIManager : MonoBehaviour
 {
@@ -57,8 +58,8 @@ public class ResultUIManager : MonoBehaviour
         },
         {
         "빵 : 겉부분을 더 많이 잘라주세요",
-        "햄(짧음) : 햄이 덜 익었어요. 조금만 더 익혀주세요.",
-        "햄(김) : 햄이 너무 익었어요. 조금만 덜 익혀주세요.",
+        "햄 : 햄이 덜 익었어요. 조금만 더 익혀주세요.",
+        "햄 : 햄이 너무 익었어요. 조금만 덜 익혀주세요.",
         "",
         ""
         },
@@ -115,7 +116,11 @@ public class ResultUIManager : MonoBehaviour
     {
         
     }
-
+    public void Confirm()
+    {
+        Debug.Log("loadScene");
+        SceneManager.LoadScene(0);
+    }
     public void Evaluate()
     {
         for(int i =0; i < 4; i++)
@@ -131,6 +136,7 @@ public class ResultUIManager : MonoBehaviour
     /// <param name="i"></param>
     private void SetTexts(int i)
     {
+        bool isComplete = true;
         if (i == 0)
             return;
         string rateStr = "";
@@ -139,8 +145,11 @@ public class ResultUIManager : MonoBehaviour
             if (rate[i - 1, j])
             {
                 rateStr = rateStr + '\n' + texts[id, i - 1, j];
+                isComplete = false;
             }
         }
+        if (isComplete)
+            rateStr = "완벽해요!";
         feedbackTexts[i].text = rateStr;
     }
 
@@ -409,7 +418,7 @@ public class ResultUIManager : MonoBehaviour
         else if (CheckSandWichCooking.instance.hamMaxTemperature < 80.0f)
         {
             rate[1, 1] = true;
-            return 2.5f;
+            return 0f;
         }
         else if (CheckSandWichCooking.instance.hamMaxTemperature > 180.0f)
         {
@@ -432,7 +441,7 @@ public class ResultUIManager : MonoBehaviour
         if (CheckSteakCook.instance.maxSteakInsideTemperature < 50.0f)
         {
             rate[1, 4] = true;
-            return 1.0f;
+            return 0.0f;
         }
         else
         {
@@ -445,7 +454,7 @@ public class ResultUIManager : MonoBehaviour
         if (CheckSteakCook.instance.maxSteakOutsideTemperature < 80.0f)
         {
             rate[1, 0] = true;
-            return 2.5f;
+            return 0f;
         }
         else if (CheckSteakCook.instance.maxSteakOutsideTemperature > 180.0f)
         {
@@ -455,7 +464,7 @@ public class ResultUIManager : MonoBehaviour
         else if (CheckSteakCook.instance.maxSteakOutsideTemperature > 140.0f)
         {
             rate[1, 1] = true;
-            return 2.5f;
+            return 0f;
         }
         else
         {
@@ -524,7 +533,7 @@ public class ResultUIManager : MonoBehaviour
             rate[2, 1] = true;
         }
 
-        return 5.0f - Mathf.Clamp(Mathf.Abs(saltAmount), 0, 5);
+        return 4.0f - Mathf.Clamp(Mathf.Abs(saltAmount), 0, 5);
     }
     /// <summary>
     /// 후추양 평가
@@ -571,7 +580,7 @@ public class ResultUIManager : MonoBehaviour
             rate[2, 3] = true;
         }
 
-        return 5.0f - Mathf.Clamp(Mathf.Abs(pepperAmount)*1.5f, 0f, 5f);
+        return 4.0f - Mathf.Clamp(Mathf.Abs(pepperAmount)*1.5f, 0f, 5f);
     }
     /// <summary>
     /// 파슬리 평가
@@ -598,7 +607,7 @@ public class ResultUIManager : MonoBehaviour
     {
 
         float mayoAmount = CheckSandWichCooking.instance.mayoSpreadAmount;
-        if (mayoAmount > 0.1f)
+        if (mayoAmount > 0.2f)
         {
             return 5.0f;
         }

@@ -12416,6 +12416,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   realTimeScale: 1
   timerScale: 5
+  steak: {fileID: 0}
 --- !u!1001 &1294503193
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18583,6 +18584,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1445148861194778740, guid: e35efc656e620ad44aab4f29b63e3705, type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2786072408563763617, guid: e35efc656e620ad44aab4f29b63e3705, type: 3}
       propertyPath: m_RootOrder
       value: 9

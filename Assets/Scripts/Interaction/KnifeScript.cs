@@ -9,26 +9,29 @@ public class KnifeScript : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Steak")
+        if (CutAudioList.Instance != null)
         {
-            audioSource.clip = CutAudioList.Instance.audioClips[0];
-            transform.GetComponent<BoxCollider>().isTrigger = true;
-            audioSource.Play();
+            if (collision.gameObject.tag == "Steak")
+            {
+                audioSource.clip = CutAudioList.Instance.audioClips[0];
+                transform.GetComponent<BoxCollider>().isTrigger = true;
+                audioSource.Play();
+            }
+            else if (collision.gameObject.tag == "Bread")
+            {
+                audioSource.clip = CutAudioList.Instance.audioClips[1];
+                transform.GetComponent<BoxCollider>().isTrigger = true;
+                audioSource.Play();
+            }
+            else if (collision.gameObject.tag == "Potato")
+            {
+                audioSource.clip = CutAudioList.Instance.audioClips[2];
+                transform.GetComponent<BoxCollider>().isTrigger = true;
+                audioSource.Play();
+            }
+            else
+                return;
         }
-        else if (collision.gameObject.tag == "Bread")
-        {
-            audioSource.clip = CutAudioList.Instance.audioClips[1];
-            transform.GetComponent<BoxCollider>().isTrigger = true;
-            audioSource.Play();
-        }
-        else if (collision.gameObject.tag == "Potato")
-        {
-            audioSource.clip = CutAudioList.Instance.audioClips[2];
-            transform.GetComponent<BoxCollider>().isTrigger = true;
-            audioSource.Play();
-        }
-        else
-            return;
     }
 
     // Start is called before the first frame update
