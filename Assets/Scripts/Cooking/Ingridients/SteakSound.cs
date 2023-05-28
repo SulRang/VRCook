@@ -35,22 +35,14 @@ public class SteakSound : MonoBehaviour
         }
     }
 
-    IEnumerator PlusSound(float time)
-    {
-        for(float i = 0.1f; i > 0; i-= ((0.1f * Time.deltaTime) / time))
-        {
-            plusSound = i;
-            yield return new WaitForEndOfFrame();
-        }
-    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name == "FryPan" && other.transform.GetComponent<ThermalObject>().temperature > 30f)
         {
+            other.transform.GetComponentInChildren<ParticleSystem>().Play();
             if(isLostedOnPan)
             {
-                StartCoroutine(PlusSound(5.0f));
                 isLostedOnPan = false;
                 CheckSteakCook.instance.steakFlippingCount++;
             }
@@ -65,7 +57,7 @@ public class SteakSound : MonoBehaviour
     {
         if (other.gameObject.name == "FryPan")
         {
-            
+            other.transform.GetComponentInChildren<ParticleSystem>().Stop();
             isOnPan = false;
             isLostedOnPan = true;
             audioSources[0].Stop();

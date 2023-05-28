@@ -15170,7 +15170,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 341229f3ec1bf0a4c8fc21c87ed94b22, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.008
+  m_Volume: 0.02
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -18367,7 +18367,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 341229f3ec1bf0a4c8fc21c87ed94b22, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.008
+  m_Volume: 0.02
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -18689,6 +18689,18 @@ PrefabInstance:
     - target: {fileID: 9195577943158613814, guid: de6c7d7bf42332948bb612704c4f6cae, type: 3}
       propertyPath: m_RootOrder
       value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9195577943158613814, guid: de6c7d7bf42332948bb612704c4f6cae, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9195577943158613814, guid: de6c7d7bf42332948bb612704c4f6cae, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9195577943158613814, guid: de6c7d7bf42332948bb612704c4f6cae, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9195577943158613814, guid: de6c7d7bf42332948bb612704c4f6cae, type: 3}
       propertyPath: m_LocalPosition.x
@@ -20832,15 +20844,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3177880049338347816, guid: ace6b2098a322124886c4e48f282391d, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3177880049338347816, guid: ace6b2098a322124886c4e48f282391d, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3177880049338347816, guid: ace6b2098a322124886c4e48f282391d, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3177880049338347816, guid: ace6b2098a322124886c4e48f282391d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -20852,7 +20864,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3177880049338347816, guid: ace6b2098a322124886c4e48f282391d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.015
       objectReference: {fileID: 0}
     - target: {fileID: 3177880049338347816, guid: ace6b2098a322124886c4e48f282391d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -20881,6 +20893,46 @@ PrefabInstance:
     - target: {fileID: 3177880049338347816, guid: ace6b2098a322124886c4e48f282391d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023849318758762560, guid: ace6b2098a322124886c4e48f282391d, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023849318758762560, guid: ace6b2098a322124886c4e48f282391d, type: 3}
+      propertyPath: ShapeModule.type
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023849318758762560, guid: ace6b2098a322124886c4e48f282391d, type: 3}
+      propertyPath: ShapeModule.m_Scale.x
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023849318758762560, guid: ace6b2098a322124886c4e48f282391d, type: 3}
+      propertyPath: ShapeModule.m_Scale.y
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023849318758762560, guid: ace6b2098a322124886c4e48f282391d, type: 3}
+      propertyPath: ShapeModule.m_Scale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023849318758762560, guid: ace6b2098a322124886c4e48f282391d, type: 3}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023849318758762560, guid: ace6b2098a322124886c4e48f282391d, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023849318758762560, guid: ace6b2098a322124886c4e48f282391d, type: 3}
+      propertyPath: InitialModule.startColor.minColor.b
+      value: 0.9433962
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023849318758762560, guid: ace6b2098a322124886c4e48f282391d, type: 3}
+      propertyPath: InitialModule.startColor.minColor.g
+      value: 0.9433962
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023849318758762560, guid: ace6b2098a322124886c4e48f282391d, type: 3}
+      propertyPath: InitialModule.startColor.minColor.r
+      value: 0.9433962
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -21805,7 +21857,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 341229f3ec1bf0a4c8fc21c87ed94b22, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.008
+  m_Volume: 0.02
   m_Pitch: 1
   Loop: 1
   Mute: 0
