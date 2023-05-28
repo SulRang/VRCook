@@ -223,13 +223,17 @@ public class ObjectCutting
         rightSideObj.AddComponent<BoxCollider>();
         rightSideObj.AddComponent<Rigidbody>();
         rightSideObj.AddComponent<BasicIndegridients>();
-        if (victim.tag == "Steak") {
+        if (victim.tag == "Steak")
+        {
             rightSideObj.AddComponent<MaterialChangeObject>();
             rightSideObj.GetComponent<MaterialChangeObject>().returnMat = victim.GetComponent<MaterialChangeObject>().returnMat;
         }
         rightSideObj.GetComponent<BasicIndegridients>().temperature = victim.GetComponent<BasicIndegridients>().temperature;
-        if(victim.tag != "Steak")
+        if (victim.tag != "Steak")
+        {
+            GameObject.Destroy(victim.GetComponent<XRGrabInteractable>());
             rightSideObj.AddComponent<XRGrabInteractable>();
+        }
 
         return new GameObject[] { leftSideObj, rightSideObj };
 
