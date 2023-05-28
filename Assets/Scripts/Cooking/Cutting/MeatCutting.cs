@@ -38,6 +38,7 @@ public class MeatCutting : MonoBehaviour
 
     private void Start()
     {
+
         if (material == null)
             if(transform.GetComponent<MeshRenderer>().materials.Length >= 2)
                 material = transform.GetComponent<MeshRenderer>().materials[1];
