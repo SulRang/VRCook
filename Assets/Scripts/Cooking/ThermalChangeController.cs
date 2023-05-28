@@ -10,6 +10,7 @@ public class ThermalChangeController : MonoBehaviour
     public float realTimeScale = 1f;
     public float timerScale = 5f;
     private float timeScaleRatio = 0.01f;
+    GameObject steak;
 
     private void Awake()
     {
@@ -22,10 +23,35 @@ public class ThermalChangeController : MonoBehaviour
             Destroy(this.gameObject);
         }
         timeScale = realTimeScale * timeScaleRatio;
+        
+    }
+
+    private void Start()
+    {
+        steak = GameObject.Find("steak");
     }
 
     private void Update()
     {
+        if (timerScale == 1f)
+        {
+            steak.transform.GetComponent<ThermalObject>().specificHeat = 5;
+            steak.transform.GetComponent<ThermalObject>().volume = 3;
+            realTimeScale = 1f;
+
+        }
+        else if(timerScale == 2.5f)
+        {
+            steak.transform.GetComponent<ThermalObject>().specificHeat = 5;
+            steak.transform.GetComponent<ThermalObject>().volume = 3;
+            realTimeScale = 3f;
+        }
+        else if(timerScale == 5f)
+        {
+            steak.transform.GetComponent<ThermalObject>().specificHeat = 3;
+            steak.transform.GetComponent<ThermalObject>().volume = 3;
+            realTimeScale = 10f;
+        }
         timeScale = realTimeScale * timeScaleRatio;
     }
 
