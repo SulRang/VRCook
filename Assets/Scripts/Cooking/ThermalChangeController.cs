@@ -5,10 +5,9 @@ using UnityEngine;
 public class ThermalChangeController : MonoBehaviour
 {
     public static ThermalChangeController instance;
-    public float timeScale;
-    [SerializeField]
+    private float timeScale;
+    [Header("시간 배율")]
     public float realTimeScale = 1f;
-    [SerializeField]
     private float timeScaleRatio = 0.01f;
 
     private void Awake()
@@ -24,6 +23,10 @@ public class ThermalChangeController : MonoBehaviour
         timeScale = realTimeScale * timeScaleRatio;
     }
 
+    private void Update()
+    {
+        timeScale = realTimeScale * timeScaleRatio;
+    }
 
     public void UpdateTimeScale(float _realTimeScale)
     {
