@@ -10,7 +10,7 @@ public class ThermalChangeController : MonoBehaviour
     public float realTimeScale = 1f;
     public float timerScale = 5f;
     private float timeScaleRatio = 0.01f;
-    GameObject steak;
+    public GameObject steak;
 
     private void Awake()
     {
@@ -28,7 +28,7 @@ public class ThermalChangeController : MonoBehaviour
 
     private void Start()
     {
-        steak = GameObject.Find("steak");
+        //steak = GameObject.Find("steak");
     }
 
     private void Update()

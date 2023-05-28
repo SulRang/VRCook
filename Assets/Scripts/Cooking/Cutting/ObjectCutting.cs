@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
+
 public class ObjectCutting
 {
     private static Plane blade;
@@ -206,9 +208,12 @@ public class ObjectCutting
 
         leftSideObj.GetComponent<MeshRenderer>().materials = mats;
         GameObject.Destroy(victim.GetComponent<BoxCollider>());
-        GameObject.Destroy(victim.GetComponent<MaterialChangeObject>());
         victim.AddComponent<BoxCollider>();
-        victim.AddComponent<MaterialChangeObject>();
+        if (victim.tag == "Steak")
+        {
+            GameObject.Destroy(victim.GetComponent<MaterialChangeObject>());
+            victim.AddComponent<MaterialChangeObject>();
+        }
         rightSideObj.tag = victim.tag;
 
         rightSideObj.transform.localScale = leftSideObj.transform.localScale * size;
@@ -218,9 +223,13 @@ public class ObjectCutting
         rightSideObj.AddComponent<BoxCollider>();
         rightSideObj.AddComponent<Rigidbody>();
         rightSideObj.AddComponent<BasicIndegridients>();
-        rightSideObj.AddComponent<MaterialChangeObject>();
-        rightSideObj.GetComponent<MaterialChangeObject>().returnMat = victim.GetComponent<MaterialChangeObject>().returnMat;
+        if (victim.tag == "Steak") {
+            rightSideObj.AddComponent<MaterialChangeObject>();
+            rightSideObj.GetComponent<MaterialChangeObject>().returnMat = victim.GetComponent<MaterialChangeObject>().returnMat;
+        }
         rightSideObj.GetComponent<BasicIndegridients>().temperature = victim.GetComponent<BasicIndegridients>().temperature;
+        if(victim.tag != "Steak")
+            rightSideObj.AddComponent<XRGrabInteractable>();
 
         return new GameObject[] { leftSideObj, rightSideObj };
 
