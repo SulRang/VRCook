@@ -950,13 +950,13 @@ GameObject:
   - component: {fileID: 147443761}
   - component: {fileID: 147443767}
   - component: {fileID: 147443766}
-  - component: {fileID: 147443765}
   - component: {fileID: 147443764}
   - component: {fileID: 147443763}
   - component: {fileID: 147443762}
+  - component: {fileID: 147443768}
   m_Layer: 0
   m_Name: Sphere
-  m_TagString: Untagged
+  m_TagString: Bread
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1142,27 +1142,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!135 &147443765
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 147443760}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &147443766
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1213,6 +1192,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 147443760}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &147443768
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 147443760}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &173190642
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6949,6 +6949,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: toast bread
       objectReference: {fileID: 0}
+    - target: {fileID: 1325141102793003344, guid: 7d37c0f571aafddfa9bd67ce37c16a8d, type: 3}
+      propertyPath: m_TagString
+      value: Bread
+      objectReference: {fileID: 0}
     - target: {fileID: 2695001684279180007, guid: 7d37c0f571aafddfa9bd67ce37c16a8d, type: 3}
       propertyPath: m_IsTrigger
       value: 1
@@ -12315,7 +12319,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f6d88e964e8faa44686733d353d6ecd3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.7947606
+      value: 1.755
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f6d88e964e8faa44686733d353d6ecd3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -12843,9 +12847,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 708e562cd04da3741a1f63bba9cbce9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeScale: 0
   realTimeScale: 1
-  timeScaleRatio: 0.01
+  timerScale: 5
 --- !u!1001 &1294503193
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13213,6 +13216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17b76f9416b9f7b4ca097987591a12d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  handle: {fileID: 0}
 --- !u!54 &1312248631
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -16863,6 +16867,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: toast bread
       objectReference: {fileID: 0}
+    - target: {fileID: 1325141102793003344, guid: 7d37c0f571aafddfa9bd67ce37c16a8d, type: 3}
+      propertyPath: m_TagString
+      value: Bread
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17589,7 +17597,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 665618852869069149, guid: d2af72034d647b3479d45e31fc0d809d, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 83
       objectReference: {fileID: 0}
     - target: {fileID: 771886193867960411, guid: d2af72034d647b3479d45e31fc0d809d, type: 3}
       propertyPath: m_Pivot.x
@@ -17681,11 +17689,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1854850105963513317, guid: d2af72034d647b3479d45e31fc0d809d, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 83
       objectReference: {fileID: 0}
     - target: {fileID: 2710905673462804977, guid: d2af72034d647b3479d45e31fc0d809d, type: 3}
       propertyPath: m_Name
       value: UI (Result)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2710905673462804977, guid: d2af72034d647b3479d45e31fc0d809d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2953435317026372486, guid: d2af72034d647b3479d45e31fc0d809d, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -17697,7 +17709,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6313127644234505169, guid: d2af72034d647b3479d45e31fc0d809d, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 83
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

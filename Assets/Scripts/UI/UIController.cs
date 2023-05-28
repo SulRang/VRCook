@@ -24,7 +24,7 @@ public class UIController : MonoBehaviour
 
     public void Confirm()
     {
-        SceneManager.LoadScene(menuIdx + 1);
+        SceneManager.LoadScene(menuIdx);
     }
 
 }
