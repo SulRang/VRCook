@@ -28,13 +28,6 @@ public class TongsGrab : MonoBehaviour
         
     }
 
-    public void initTongs()
-    {
-        transform.parent.GetChild(0).rotation = Quaternion.Euler(new Vector3(5, 0, 0));
-        transform.parent.GetChild(1).rotation = Quaternion.Euler(new Vector3(5, 0, 0));
-    }
-
-
     // Update is called once per frame
     void Update()
     {
@@ -52,8 +45,8 @@ public class TongsGrab : MonoBehaviour
             isActive = true;
             target.GetComponent<Rigidbody>().isKinematic = true;
         }
-        transform.parent.GetChild(0).rotation = Quaternion.Euler(new Vector3(2, 0, 0));
-        transform.parent.GetChild(1).rotation = Quaternion.Euler(new Vector3(2, 0, 0));
+        transform.parent.GetChild(0).Rotate(new Vector3(-3, 0, 0));
+        transform.parent.GetChild(1).Rotate(new Vector3(-3, 0, 0));
     }
     public void UnGrabTongs()
     {
@@ -62,8 +55,8 @@ public class TongsGrab : MonoBehaviour
             isActive = false;
             target.GetComponent<Rigidbody>().isKinematic = false;
         }
-        transform.parent.GetChild(0).rotation = Quaternion.Euler(new Vector3(5, 0, 0));
-        transform.parent.GetChild(1).rotation = Quaternion.Euler(new Vector3(5, 0, 0));
+        transform.parent.GetChild(0).Rotate(new Vector3(3, 0, 0));
+        transform.parent.GetChild(1).Rotate(new Vector3(3, 0, 0));
     }
 
 
