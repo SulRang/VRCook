@@ -39,11 +39,15 @@ public class MeatCutting : MonoBehaviour
     private void Start()
     {
         if (material == null)
-            material = transform.parent.GetComponent<MeshRenderer>().materials[1];
+            if(transform.GetComponent<MeshRenderer>().materials.Length >= 2)
+                material = transform.GetComponent<MeshRenderer>().materials[1];
     }
 
     private void Update()
     {
+        if (material == null)
+            if (transform.GetComponent<MeshRenderer>().materials.Length >= 2)
+                material = transform.GetComponent<MeshRenderer>().materials[1];
         ctime += Time.deltaTime;
         if (ctime > 0.5f && !isStay)
         {
@@ -69,7 +73,7 @@ public class MeatCutting : MonoBehaviour
             Vector3 rot = new Vector3(-1 * Mathf.Cos(angle), 0,-1 * Mathf.Sin(angle) * Mathf.Cos(angle));
             GameObject[] gameObjects = ObjectCutting.Cut(gameObject, collision.contacts[0].point, Vector3.left, material, size);
             if(gameObjects.Length > 1)
-                gameObjects[1].transform.parent = gameObjects[0].transform;
+                gameObjects[1].transform.parent = gameObjects[0].transform.parent;
             isHolding = false;
             collision.transform.GetComponent<BoxCollider>().isTrigger = true;
         }

@@ -175,7 +175,8 @@ public class ObjectCutting
         Material[] mats = new Material[] { victim.GetComponent<MeshRenderer>().material, capMaterial };
         if (victim.tag == "Steak")
         {
-            Material mat = victim.GetComponent<MaterialChangeObject>().GetMostRelevantMat();
+            MeatMaterials.Instance.SetMat();
+            Material mat = MeatMaterials.Instance.returnMat;
             mat.color = new Color (1,1,1, 1.0f);
             float tem = victim.GetComponent<BasicIndegridients>().temperature;
             int co = 0;
@@ -207,6 +208,7 @@ public class ObjectCutting
         GameObject.Destroy(victim.GetComponent<BoxCollider>());
         GameObject.Destroy(victim.GetComponent<MaterialChangeObject>());
         victim.AddComponent<BoxCollider>();
+        victim.AddComponent<MaterialChangeObject>();
         rightSideObj.tag = victim.tag;
 
         rightSideObj.transform.localScale = leftSideObj.transform.localScale * size;
@@ -216,6 +218,8 @@ public class ObjectCutting
         rightSideObj.AddComponent<BoxCollider>();
         rightSideObj.AddComponent<Rigidbody>();
         rightSideObj.AddComponent<BasicIndegridients>();
+        rightSideObj.AddComponent<MaterialChangeObject>();
+        rightSideObj.GetComponent<MaterialChangeObject>().returnMat = victim.GetComponent<MaterialChangeObject>().returnMat;
         rightSideObj.GetComponent<BasicIndegridients>().temperature = victim.GetComponent<BasicIndegridients>().temperature;
 
         return new GameObject[] { leftSideObj, rightSideObj };
