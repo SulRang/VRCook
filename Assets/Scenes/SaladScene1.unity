@@ -6510,28 +6510,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &330844367 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6886603348487056280, guid: 1f631631b889381439e2fafe01f5edc7, type: 3}
-  m_PrefabInstance: {fileID: 1329375373}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &330844372
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 330844367}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9743b08dba8b2914393f4bc959258c44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waterBubbleMat: {fileID: 0}
-  waterBubbleSound: {fileID: 0}
-  waterTemperature: {fileID: 0}
-  waterSteam: {fileID: 0}
-  potatoSlices: []
 --- !u!4 &337902140 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7a34ddaf0acb2644cb2cdd3a5a49dc43, type: 3}
@@ -7570,6 +7548,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17b76f9416b9f7b4ca097987591a12d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  handle: {fileID: 0}
 --- !u!65 &494235289
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9286,6 +9265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: {fileID: -3098226685534276454, guid: 0d9391d806105ce38a4c9de85d752f10, type: 3}
+  size: 0.15
 --- !u!1001 &709747281
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12434,9 +12414,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 708e562cd04da3741a1f63bba9cbce9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeScale: 0
   realTimeScale: 1
-  timeScaleRatio: 0.01
+  timerScale: 5
 --- !u!1001 &1294503193
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12625,33 +12604,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8221182, guid: 1f631631b889381439e2fafe01f5edc7, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1049397680297887045, guid: 1f631631b889381439e2fafe01f5edc7, type: 3}
-      propertyPath: m_IsKinematic
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1119372500069637224, guid: 1f631631b889381439e2fafe01f5edc7, type: 3}
-      propertyPath: m_Convex
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5318515351596610816, guid: 1f631631b889381439e2fafe01f5edc7, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.015
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1119372500069637224, guid: 1f631631b889381439e2fafe01f5edc7, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 124082, guid: 1f631631b889381439e2fafe01f5edc7, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1579365438}
-    - targetCorrespondingSourceObject: {fileID: 6886603348487056280, guid: 1f631631b889381439e2fafe01f5edc7, type: 3}
-      insertIndex: 3
-      addedObject: {fileID: 330844372}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f631631b889381439e2fafe01f5edc7, type: 3}
 --- !u!1001 &1343493890
 PrefabInstance:
@@ -13743,29 +13699,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.44, y: 0.44, z: 0.13}
   m_Center: {x: 0, y: 0, z: 0.08}
---- !u!1 &1579365431 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 124082, guid: 1f631631b889381439e2fafe01f5edc7, type: 3}
-  m_PrefabInstance: {fileID: 1329375373}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1579365438
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1579365431}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a633e30626945d42a549719af09437e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  colliderType: 0
-  width: 0.01
-  invertColliders: 0
-  centered: 0
-  addRigidBody: 1
-  gravity: 1
 --- !u!1001 &1593563608
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18511,6 +18444,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: {fileID: -3572635458029077590, guid: 3866a3fd6e13fcf41831561db955c510, type: 3}
+  size: 0.15
 --- !u!114 &6703234653586122444
 MonoBehaviour:
   m_ObjectHideFlags: 0
