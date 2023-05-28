@@ -8,6 +8,7 @@ public class ThermalChangeController : MonoBehaviour
     private float timeScale;
     [Header("시간 배율")]
     public float realTimeScale = 1f;
+    public float timerScale = 5f;
     private float timeScaleRatio = 0.01f;
 
     private void Awake()
