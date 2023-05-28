@@ -9,6 +9,8 @@ TagManager:
   - Hand
   - Steak
   - BreadCol
+  - Bread
+  - Potato
   layers:
   - Default
   - TransparentFX
