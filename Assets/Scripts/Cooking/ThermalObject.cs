@@ -46,26 +46,31 @@ public class ThermalObject : MonoBehaviour
             {
                 if((temperature < otherThermal.temperature && temperature < limitTemperature) || (temperature > otherThermal.temperature && otherThermal.temperature < otherThermal.limitTemperature))
                 {
-                    // 객체 간 온도차이 계산
-                    float deltaTemperature = temperature - otherThermal.temperature;
+                    int time = (int)ThermalChangeController.instance.realTimeScale;
+                    for(int i = 0; i < time; i++)
+                    {
+                        // 객체 간 온도차이 계산
+                        float deltaTemperature = temperature - otherThermal.temperature;
 
-                    // 푸리에의 열전도법칙을 사용하여 객체 간 열유동량 계산
-                    float heatFlow = deltaTemperature * thermalConductivity;
+                        // 푸리에의 열전도법칙을 사용하여 객체 간 열유동량 계산
+                        float heatFlow = deltaTemperature * thermalConductivity;
 
-                    // 객체 간 전달된 열에너지 계산
-                    float heatEnergyTransferred = heatFlow * Time.deltaTime;
+                        // 객체 간 전달된 열에너지 계산
+                        float heatEnergyTransferred = heatFlow * Time.deltaTime;
 
-                    // 각 객체의 비열과 부피를 고려하여 객체의 온도 변화 계산
-                    float temperatureChange = -heatEnergyTransferred * ThermalChangeController.instance.timeScale / (specificHeat * volume);
-                    float otherTemperatureChange = heatEnergyTransferred * ThermalChangeController.instance.timeScale / (otherThermal.specificHeat * otherThermal.volume);
+                        // 각 객체의 비열과 부피를 고려하여 객체의 온도 변화 계산
+                        float temperatureChange = -(heatEnergyTransferred) * 0.01f / (specificHeat * volume);
+                        float otherTemperatureChange = (heatEnergyTransferred) * 0.01f / (otherThermal.specificHeat * otherThermal.volume);
 
-                    // 각 객체의 온도를 업데이트
-                    temperature += temperatureChange;
-                    otherThermal.temperature += otherTemperatureChange;
+                        // 각 객체의 온도를 업데이트
+                        temperature += temperatureChange;
+                        otherThermal.temperature += otherTemperatureChange;
 
-                    // 디버그 로그 출력
-                    Debug.Log(otherThermal.gameObject.name + "이 " + otherTemperatureChange + "만큼 변화하여" + otherThermal.temperature + "'C 가 되었습니다.");
+                        // 디버그 로그 출력
+                        //Debug.Log(otherThermal.gameObject.name + "이 " + otherTemperatureChange + "만큼 변화하여" + otherThermal.temperature + "'C 가 되었습니다.");
 
+
+                    }
                 }
             }
         }
